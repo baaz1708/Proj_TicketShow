@@ -1,0 +1,21 @@
+{
+    "users":[
+        {
+            "id":1,
+            "loc":"",
+            "name":"",
+            "email":"",
+            "password":"",
+            "role":""
+        }
+    ],
+    "venues":[
+        {
+            "id":1,
+            "city":"",
+            "image":"",
+            "dateadded":"",
+            "shows":[]
+        }
+    ]
+}
