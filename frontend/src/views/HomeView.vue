@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <carousel-bar msg="Latest shows and Movies on Ticket Show" />    
+    <router-link to="/movies" class="link">
+      <strong><em>Book a Show</em></strong>
+      <i class="bi bi-arrow-right ms-2"></i>
+    </router-link>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CarouselBar from "@/components/CarouselBar.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    CarouselBar
   },
 };
 </script>
+
+<style>
+  .link {   
+    color: #42b983;
+    font: 2em sans-serif;
+  }
+</style>
