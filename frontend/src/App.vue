@@ -1,10 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+<div >
+  <NavBar />
   <router-view />
+</div>
 </template>
+
+<script>
+import NavBar from '@/components/NavBar.vue'
+export default {
+  components: {
+    NavBar
+  }
+};
+</script>
 
 <style>
 #app {
@@ -15,16 +23,21 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+
+.-fill-gradient{
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: #fff;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.error {
+  border: 1px solid red;
+}
+.errorMessage {
+  color: red;
 }
 </style>

@@ -1,21 +1,33 @@
 {
-    "users":[
-        {
-            "id":1,
-            "loc":"",
-            "name":"",
-            "email":"",
-            "password":"",
-            "role":""
-        }
-    ],
-    "venues":[
-        {
-            "id":1,
-            "city":"",
-            "image":"",
-            "dateadded":"",
-            "shows":[]
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "loc": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": ""
+    }
+  ],
+  "venues": [
+    {
+      "id": 1,
+      "city": "",
+      "image": "",
+      "dateadded": "",
+      "shows": []
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "email": "",
+      "password": ""
+    },
+    {
+      "email": "singh@mail.com",
+      "password": "homepass",
+      "id": 2
+    }
+  ]
 }

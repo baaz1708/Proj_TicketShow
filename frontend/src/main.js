@@ -11,22 +11,21 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 // Import Vuelidate
-import Vuelidate from 'vuelidate'
 
 const app = createApp(App)
 
-app.use(Vuelidate)
 app.use(store)
 app.use(router)
 
-// app.mixin({
-//   created() {
-//     const userString = localStorage.getItem('user')
-//     if (userString) {
-//       const userData = JSON.parse(userString)
-//       store.commit('user_auth/LOGIN_DATA', userData)
-//     }
-
+app.mixin({
+  created() {
+    const userString = localStorage.getItem('user')
+    if (userString) {
+      const userData = JSON.parse(userString)
+      store.commit('user_auth/LOGIN_DATA', userData)
+    }
+  }
+})
 //     axios.interceptors.response.use(
 //       response => response,
 //       error => {

@@ -12,7 +12,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <router-link :to="{name:'login'}" v-if="!loggedIn" class="nav-link active" aria-current="page">Login/Register</router-link>
+                    <router-link to="/" v-else class="nav-link active" @click.native="logout">Logout</router-link>
                     </li>
                     <li class="nav-item dropdown"> </li>
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,8 +37,17 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-
+    computed:{
+    ...mapGetters('user_auth',['loggedIn'])
+  },
+  methods:{
+    logout(){
+      console.log('Loggded out')
+      this.$store.dispatch('user_auth/logout')
+    }
+  }
 }
 </script>
 

@@ -15,7 +15,7 @@ export default{
     postRegistration(registration) {
         return apiClient.post('/register', registration)
       },
-      postLogin(login_user) {
-        return apiClient.post('/login', login_user)
-      }
+    postLogin(login_user) {
+      return apiClient.post('/login', login_user)
+    }
 }
