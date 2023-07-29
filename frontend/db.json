@@ -29,5 +29,14 @@
       "password": "homepass",
       "id": 2
     }
+  ],
+  "register": [
+    {
+      "id": 1,
+      "email": "",
+      "password": "",
+      "confirm_password": "",
+      "username": ""
+    }
   ]
 }

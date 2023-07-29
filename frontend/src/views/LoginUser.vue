@@ -33,7 +33,7 @@
         </form>
 
         <p v-if="error" class="errorMessage">{{ error }}</p>
-        <!-- <router-link to="/register" class="">Don't have an account? Register</router-link> -->
+        <router-link to="/register" class="">Don't have an account? Register</router-link>
     </div>
 </template>
 
