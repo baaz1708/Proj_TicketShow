@@ -17,5 +17,14 @@ export default{
       },
     postLogin(login_user) {
       return apiClient.post('/login', login_user)
+    },
+    getCities() {
+      return apiClient.get('/cities')
+    },
+    getVenues(){
+      return apiClient.get('/venues')
+    },
+    postVenue(venue_data){
+      return apiClient.post('/venues', venue_data)
     }
 }

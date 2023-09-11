@@ -9,15 +9,6 @@
       "role": ""
     }
   ],
-  "venues": [
-    {
-      "id": 1,
-      "city": "",
-      "image": "",
-      "dateadded": "",
-      "shows": []
-    }
-  ],
   "login": [
     {
       "id": 1,
@@ -28,6 +19,36 @@
       "email": "singh@mail.com",
       "password": "homepass",
       "id": 2
+    },
+    {
+      "email": "singh@mail.com",
+      "password": "homepass",
+      "id": 3
+    },
+    {
+      "email": "singh@mail.com",
+      "password": "homepass",
+      "id": 4
+    },
+    {
+      "email": "singh@mail.com",
+      "password": "homepasss",
+      "id": 5
+    },
+    {
+      "email": "singh@mail.com",
+      "password": "homepass",
+      "id": 6
+    },
+    {
+      "email": "tim@123.com",
+      "password": "homepass",
+      "id": 7
+    },
+    {
+      "email": "tim@123.com",
+      "password": "homepass",
+      "id": 8
     }
   ],
   "register": [
@@ -37,6 +58,176 @@
       "password": "",
       "confirm_password": "",
       "username": ""
+    },
+    {
+      "username": "newuser",
+      "email": "newuser@mail.com",
+      "password": "homepass",
+      "confirm_password": "homepass",
+      "id": 2
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "cityname": "sriganagagar"
+    },
+    {
+      "id": 2,
+      "cityname": "Delhi"
+    },
+    {
+      "id": 3,
+      "cityname": "Mumbai"
+    },
+    {
+      "id": 4,
+      "cityname": "Jaipur"
+    },
+    {
+      "id": 5,
+      "cityname": "Goa"
+    },
+    {
+      "id": 6,
+      "cityname": "Chennai"
+    },
+    {
+      "id": 7,
+      "cityname": "Kolkata"
+    }
+  ],
+  "venues": [
+    {
+      "id": 0,
+      "name": "",
+      "city": "",
+      "dateadded": "",
+      "capacity": "",
+      "shows": []
+    },
+    {
+      "id": 1,
+      "name": "Gold Cinema",
+      "city": "Delhi",
+      "dateadded": "02/07/2023",
+      "capacity": "50",
+      "shows": [
+        {
+          "id": 1,
+          "city": "Delhi",
+          "name": "Oppenheimer",
+          "image": "Oppenheimer image",
+          "timing": "2.4 hrs",
+          "date_added": "22/07/2023",
+          "tags": [
+            "thriller",
+            "true story",
+            "invention"
+          ]
+        },
+        {
+          "id": 2,
+          "city": "Delhi",
+          "name": "Barbie",
+          "image": "barbie image",
+          "timing": "1.45 hrs",
+          "date_added": "22/07/2022",
+          "tags": [
+            "drama",
+            "fantasy",
+            "feminin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "CGS theater",
+      "city": "New Delhi",
+      "dateadded": "01/01/2022",
+      "capacity": "42",
+      "shows": [
+        {
+          "id": 3,
+          "city": "New Delhi",
+          "name": "Joker",
+          "image": "joker image",
+          "timing": "1.6 hrs",
+          "date_added": "02/03/2022",
+          "tags": [
+            "drama",
+            "social message",
+            "gore",
+            "crime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "kamekar cineplex",
+      "city": "Mumbai",
+      "dateadded": "05/04/2021",
+      "capacity": "48",
+      "shows": [
+        {
+          "id": 4,
+          "city": "Mumbai",
+          "name": "Inception",
+          "image": "inception image",
+          "timing": "2.1 hrs",
+          "date_added": "05/09/2021",
+          "tags": [
+            "scifi",
+            "action",
+            "drama"
+          ]
+        },
+        {
+          "id": 5,
+          "city": "Mumbai",
+          "name": "The Avengers:Endgame",
+          "image": "endgame image",
+          "timing": "3.1 hrs",
+          "date_added": "05/09/2021",
+          "tags": [
+            "action",
+            "superpowers",
+            "scifi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Durga cinema",
+      "city": "Kolkata",
+      "dateadded": "05/05/2022",
+      "capacity": "57",
+      "shows": [
+        {
+          "id": 6,
+          "city": "Kolkata",
+          "name": "Laxmi Bomb",
+          "image": "laxmi bomb image",
+          "timing": "1.8 hrs",
+          "date_added": "05/05/2022",
+          "tags": [
+            "horror",
+            "comedy",
+            "drama"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PVR",
+      "city": "Mumbai",
+      "dateadded": "05/02/2023",
+      "capacity": "200",
+      "shows": [],
+      "id": 5
     }
   ]
 }

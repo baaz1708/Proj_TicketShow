@@ -38,5 +38,9 @@ export const actions = {
 export const getters = {
     loggedIn (state) {
         return !!state.user
-    }
+    },
+     ifAdmin (state) {
+        return true
+        // return state.user && state.user.role === 'admin'
+     }
 }

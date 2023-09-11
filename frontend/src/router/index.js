@@ -3,8 +3,18 @@ import NProgress from "nprogress";
 import HomeView from "../views/HomeView.vue";
 import LoginUser from "../views/LoginUser.vue"
 import RegisterUser from "../views/RegisterUser"
+import ShowList from "../views/ShowList.vue"
+import TestUser from "../views/TestUser.vue"
+import SearchCity from "../views/SearchCity.vue"
+import AddShow from "../views/AddShow.vue"
+import AddVenue from "../views/AddVenue.vue"
 
 const routes = [
+  {
+    path: "/test/:id",
+    name: "test",
+    component: TestUser
+  },
   {
     path: "/",
     name: "home",
@@ -19,6 +29,29 @@ const routes = [
     path: "/register",
     name: "register",
     component: RegisterUser
+  },
+  {
+    path: "/showlist",
+    name: "showlist",
+    component: ShowList,
+    meta: {requiresAuth: true}
+  },
+  {
+    path: "/searchcity",
+    name: "searchcity",
+    component: SearchCity,
+  },
+  {
+    path: "/addshow",
+    name: "addshow",
+    component: AddShow,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/addvenue",
+    name: "addvenue",
+    component: AddVenue,
+    meta: {requiresAuth: true}
   }
 ];
 

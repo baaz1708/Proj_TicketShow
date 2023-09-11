@@ -20,13 +20,14 @@
                         Dropdown
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li v-if="ifAdmin"><h4 class="dropdown-item">Admin 🔖</h4></li>
+                        <li v-else><h4 class="dropdown-item">User 🏷️</h4></li>   <!-- we can change it to {{ username }} -->
                         <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </ul>
-                <form class="d-flex" role="search">
+                <form v-if="!ifAdmin" class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
@@ -40,7 +41,11 @@
 import {mapGetters} from 'vuex'
 export default {
     computed:{
-    ...mapGetters('user_auth',['loggedIn'])
+    ...mapGetters('user_auth',['loggedIn','ifAdmin']),
+    
+    // username(){
+    //   return this.$store.state.user_auth.user.username
+    // }
   },
   methods:{
     logout(){
