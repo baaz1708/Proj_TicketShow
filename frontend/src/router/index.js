@@ -8,10 +8,12 @@ import TestUser from "../views/TestUser.vue"
 import SearchCity from "../views/SearchCity.vue"
 import AddShow from "../views/AddShow.vue"
 import AddVenue from "../views/AddVenue.vue"
+import VenueCrud from "../views/VenueCrud"
+import AddonShow from "../views/AddonShow.vue"
 
 const routes = [
   {
-    path: "/test/:id",
+    path: "/test",
     name: "test",
     component: TestUser
   },
@@ -51,6 +53,18 @@ const routes = [
     path:"/addvenue",
     name: "addvenue",
     component: AddVenue,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/venuecrud/:id",
+    name: "venuecrud",
+    component: VenueCrud,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/addonshow/:id",
+    name: "addonshow",
+    component: AddonShow,
     meta: {requiresAuth: true}
   }
 ];

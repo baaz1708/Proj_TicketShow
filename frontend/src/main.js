@@ -12,6 +12,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 // Import Vuelidate
 
+// Import DatePicker
+
 const app = createApp(App)
 
 app.use(store)

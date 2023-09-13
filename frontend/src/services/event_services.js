@@ -26,5 +26,20 @@ export default{
     },
     postVenue(venue_data){
       return apiClient.post('/venues', venue_data)
+    },
+    getVenue(id){
+      return apiClient.get('/venues/' + id)
+    },
+    updateVenue(venue_data){
+      return apiClient.put('/venues/' + venue_data.id, venue_data)
+    },
+    deleteVenue(id){
+      return apiClient.delete('/venues/' + id)
+    },
+    async postShow(venue_id, show_data){
+      const response = await apiClient.get(`/venues/${venue_id}`);
+      const venue = response.data;
+      venue.shows.push(show_data);
+      return apiClient.put(`/venues/${venue_id}`, venue )
     }
 }

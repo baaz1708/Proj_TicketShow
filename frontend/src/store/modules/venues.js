@@ -3,13 +3,17 @@ import EventService from '@/services/event_services';
 export const namespaced = true
 
 export const state = {
-    venues:[]
+    venues:[],
+    venue: {}
 
 }
 
 export const mutations = {
     SET_VENUES(state,venues){
         state.venues = venues
+    },
+    SET_VENUE(state,venue){
+        state.venue = venue
     }
 
 }
@@ -34,6 +38,26 @@ export const actions = {
             // }
         })
 
+    },
+    fetchVenueById({commit},venue_id){
+        return EventService.getVenue(venue_id.id)
+        .then((res) => {
+            console.log('After getting venue by id', res)
+            commit('SET_VENUE', res.data)
+        })
+    },
+    updateVenue({commit},venue_data){
+        return EventService.updateVenue(venue_data)
+        .then((res) => {
+            console.log('After updating venue', res)
+            commit('SET_VENUE', res.data)
+        })
+    },
+    deleteVenue({commit},venue_id){  // i was writing just venue_id before which was wrong, its must to write {commit},anydata
+        return EventService.deleteVenue(venue_id.id)
+        .then(() =>{
+            console.log('After deleting the venue')
+        })
     }
 
 }

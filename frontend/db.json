@@ -99,68 +99,86 @@
   ],
   "venues": [
     {
-      "id": 0,
-      "name": "",
-      "city": "",
-      "dateadded": "",
-      "capacity": "",
-      "shows": []
-    },
-    {
       "id": 1,
       "name": "Gold Cinema",
       "city": "Delhi",
-      "dateadded": "02/07/2023",
-      "capacity": "50",
+      "capacity": "500",
+      "dataadded": "05/02/2022",
       "shows": [
         {
-          "id": 1,
-          "city": "Delhi",
-          "name": "Oppenheimer",
-          "image": "Oppenheimer image",
-          "timing": "2.4 hrs",
-          "date_added": "22/07/2023",
-          "tags": [
-            "thriller",
-            "true story",
-            "invention"
-          ]
+          "name": "The Advent",
+          "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
+          "ratings": 4,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": true,
+            "night": false
+          },
+          "till_date": "2023-09-09T13:01:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "romantic",
+            "drama",
+            "love",
+            "scifi"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
         },
         {
-          "id": 2,
+          "name": "Game",
           "city": "Delhi",
-          "name": "Barbie",
-          "image": "barbie image",
-          "timing": "1.45 hrs",
-          "date_added": "22/07/2022",
-          "tags": [
+          "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
+          "ratings": 3,
+          "selected_timings": {
+            "morning": false,
+            "noon": false,
+            "evening": true,
+            "night": true
+          },
+          "till_date": "2023-09-23T13:05:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
             "drama",
-            "fantasy",
-            "feminin"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "CGS theater",
-      "city": "New Delhi",
-      "dateadded": "01/01/2022",
-      "capacity": "42",
-      "shows": [
+            "action",
+            "thriller"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
         {
-          "id": 3,
-          "city": "New Delhi",
-          "name": "Joker",
-          "image": "joker image",
-          "timing": "1.6 hrs",
-          "date_added": "02/03/2022",
-          "tags": [
-            "drama",
-            "social message",
+          "name": "R",
+          "city": "Delhi",
+          "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
+          "ratings": 4,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": true,
+            "night": true
+          },
+          "till_date": "2023-09-29T13:37:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "violence",
             "gore",
-            "crime"
-          ]
+            "dark humours"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
         }
       ]
     },
@@ -175,10 +193,23 @@
           "id": 4,
           "city": "Mumbai",
           "name": "Inception",
-          "image": "inception image",
-          "timing": "2.1 hrs",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": true
+          },
+          "ratings": "5",
           "date_added": "05/09/2021",
-          "tags": [
+          "till_date": null,
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          },
+          "selected_tags": [
             "scifi",
             "action",
             "drama"
@@ -188,10 +219,23 @@
           "id": 5,
           "city": "Mumbai",
           "name": "The Avengers:Endgame",
-          "image": "endgame image",
-          "timing": "3.1 hrs",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": true
+          },
+          "ratings": "5",
           "date_added": "05/09/2021",
-          "tags": [
+          "till_date": null,
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          },
+          "selected_tags": [
             "action",
             "superpowers",
             "scifi"
@@ -210,10 +254,23 @@
           "id": 6,
           "city": "Kolkata",
           "name": "Laxmi Bomb",
-          "image": "laxmi bomb image",
-          "timing": "1.8 hrs",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": true
+          },
+          "ratings": "5",
           "date_added": "05/05/2022",
-          "tags": [
+          "till_date": null,
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          },
+          "selected_tags": [
             "horror",
             "comedy",
             "drama"

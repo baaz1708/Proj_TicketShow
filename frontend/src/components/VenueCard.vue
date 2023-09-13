@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link :to="{ name: 'test' , params:{ id: venue.id} }" class="col-lg-4 lnk">
+        <router-link :to="{ name: 'venuecrud' , params:{ id: venue.id} }" class="col-lg-4 lnk">
             <div class="card text-center shadow mx-2 mb-5" >
                 <div class="card-header dancefont">
                     Venue ~ 🎞️{{ venue.name }}
@@ -26,7 +26,6 @@
 <script>
 
 export default {
-
     props:{
         venue:{
             type: Object,

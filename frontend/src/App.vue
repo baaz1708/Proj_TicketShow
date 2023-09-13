@@ -27,6 +27,7 @@ export default {
 .-fill-gradient{
   background: linear-gradient(to right, #16c0b0, #84cf6a);
   color: #fff;
+  font-variant: small-caps;
 }
 
 
