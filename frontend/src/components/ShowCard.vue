@@ -12,13 +12,30 @@
                 <div class="mt-3"><span v-for="tag in show.selected_tags" :key="tag" class="badge text-bg-light mx-1">{{ tag }}</span></div>
             <div class="d-flex justify-content-between">
                 <router-link :to="{ name: 'editshow', params:{id: show.id}, query:{venue_id: venue_id} }" class="btn btn-success  btn-sm mt-3">Edit Show</router-link>
-                <a href="#" class="btn btn-outline-danger btn-sm mt-3">Delete Show</a>
+                <button type="button" class="btn btn-outline-danger btn-sm mt-3" @click="$emit('delete-show', show.id)">Delete Show</button>
+                
+                <!-- Modal -->
+                <!-- <div class="modal fade" :id="'deleteModal' + show.id" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteModalLabel">Sure! want to delete the show?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger btn-sm" @click="$emit('delete-show', show.id)">Delete Show</button>
+                        </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
+// import { Modal } from 'bootstrap'
 export default {
     props:{
         show:{
@@ -29,7 +46,13 @@ export default {
             type: String,
             required: true
         }
-    }
+    },
+
+    // mounted(){
+    //     this.$nextTick(() => {
+    //         new Modal(document.getElementById('deleteModal' + this.show.id));
+    //     });
+    // }
 
 }
 </script>

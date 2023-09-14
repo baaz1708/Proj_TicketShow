@@ -43,6 +43,15 @@ export const actions = {
             console.log('After editing show in venue', res.data)
             commit('SET_SHOW', res.data)
         })
+    },
+
+    deleteShow({commit},payload){
+        const {show_id, venue_id} = payload
+        console.log('Before deleting show', 'showID',show_id, 'venueID', venue_id)
+        return EventService.deleteShow(show_id,venue_id)
+        .then(() =>{
+            console.log('After deleteing show')
+        })
     }
 
 }

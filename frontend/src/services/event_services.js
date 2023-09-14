@@ -64,6 +64,18 @@ export default{
     const _noneed = await apiClient.put(`/venues/${venue_id}`, venue);
     return apiClient.put(`/shows/${show_id}`, show_data)
 
-   }
+   },
+
+   async deleteShow(show_id, venue_id){
+    const response = await apiClient.get(`/venues/${venue_id}`);
+    const venue = response.data;
+    const showIndex = venue.shows.findIndex(show => show.id === show_id);
+    if (showIndex !== -1){
+      venue.shows.splice(showIndex, 1);
+    }
+    const _noneed = apiClient.put(`/venues/${venue_id}`, venue);
+    return apiClient.delete(`/shows/${show_id}`)
+}
+
 
 }

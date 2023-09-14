@@ -58,7 +58,7 @@
             <router-link :to="{name:'addonshow', params:{id:id} , query:{city:Cityname} }"  v-if="Shows.length != 0" class=" btn btn-lg normbtn  -fill-gradient  mt-4 mb-5 "> ᴀᴅᴅᴏɴ ꜱʜᴏᴡ 📽️</router-link>
             <div v-if="Shows.length != 0" class="row row-cols-1 row-cols-md-4 g-4">
                 <div class="" v-for="show in filtered_shows" :key="show.id">
-                    <ShowCard  :show="show" :venue_id="this.$route.params.id"/>
+                    <ShowCard  :show="show" :venue_id="this.$route.params.id" @delete-show="deleteShow"/>
                 </div>
             </div>
             <div v-else class="row m-4">
@@ -173,6 +173,19 @@ export default {
                 this.$router.push({name: 'addshow'})
             }).catch(err => {
                 console.log('There was some in deleting venues', err)
+            })
+        },
+
+        deleteShow(show_id){
+            console.log('Before Delete show', show_id)
+            this.$store.dispatch('shows/deleteShow',{
+                show_id: show_id,
+                venue_id: this.$route.params.id
+                })
+            .then(() =>{
+                this.$router.go();
+            }).catch((err) => {
+                console.log('Error in deleting show:', err)
             })
         }
     }

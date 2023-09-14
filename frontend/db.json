@@ -106,57 +106,6 @@
       "dataadded": "05/02/2022",
       "shows": [
         {
-          "name": "Advent",
-          "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
-          "ratings": 3,
-          "selected_timings": {
-            "morning": false,
-            "noon": true,
-            "evening": true,
-            "night": false
-          },
-          "till_date": "2023-09-09T13:01:00.000Z",
-          "date_added": "05/02/2002",
-          "selected_tags": [
-            "romantic",
-            "drama",
-            "love",
-            "scifi"
-          ],
-          "bookings": {
-            "morning": "0",
-            "noon": "0",
-            "evening": "0",
-            "night": "0"
-          }
-        },
-        {
-          "id": 2,
-          "name": "Game",
-          "city": "Delhi",
-          "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
-          "ratings": 3,
-          "selected_timings": {
-            "morning": false,
-            "noon": false,
-            "evening": true,
-            "night": true
-          },
-          "till_date": "2023-09-23T13:05:00.000Z",
-          "date_added": "05/02/2002",
-          "selected_tags": [
-            "drama",
-            "action",
-            "thriller"
-          ],
-          "bookings": {
-            "morning": "0",
-            "noon": "0",
-            "evening": "0",
-            "night": "0"
-          }
-        },
-        {
           "id": 3,
           "name": "R",
           "city": "Delhi",
@@ -315,59 +264,6 @@
     }
   ],
   "shows": [
-    {
-      "name": "Advent",
-      "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
-      "ratings": 3,
-      "selected_timings": {
-        "morning": false,
-        "noon": true,
-        "evening": true,
-        "night": false
-      },
-      "till_date": "2023-09-09T13:01:00.000Z",
-      "date_added": "05/02/2002",
-      "selected_tags": [
-        "romantic",
-        "drama",
-        "love",
-        "scifi"
-      ],
-      "bookings": {
-        "morning": "0",
-        "noon": "0",
-        "evening": "0",
-        "night": "0"
-      },
-      "id": 1
-    },
-    {
-      "id": 2,
-      "name": "Game",
-      "city": "Delhi",
-      "venue_id": 1,
-      "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
-      "ratings": 3,
-      "selected_timings": {
-        "morning": false,
-        "noon": false,
-        "evening": true,
-        "night": true
-      },
-      "till_date": "2023-09-23T13:05:00.000Z",
-      "date_added": "05/02/2002",
-      "selected_tags": [
-        "drama",
-        "action",
-        "thriller"
-      ],
-      "bookings": {
-        "morning": "0",
-        "noon": "0",
-        "evening": "0",
-        "night": "0"
-      }
-    },
     {
       "id": 3,
       "name": "R",
