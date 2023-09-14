@@ -10,6 +10,7 @@ import AddShow from "../views/AddShow.vue"
 import AddVenue from "../views/AddVenue.vue"
 import VenueCrud from "../views/VenueCrud"
 import AddonShow from "../views/AddonShow.vue"
+import EditShow from "../views/EditShow.vue"
 
 const routes = [
   {
@@ -65,6 +66,12 @@ const routes = [
     path:"/addonshow/:id",
     name: "addonshow",
     component: AddonShow,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/editshow/:id",
+    name:"editshow",
+    component: EditShow,
     meta: {requiresAuth: true}
   }
 ];

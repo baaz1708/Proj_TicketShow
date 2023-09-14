@@ -11,7 +11,7 @@
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                 <div class="mt-3"><span v-for="tag in show.selected_tags" :key="tag" class="badge text-bg-light mx-1">{{ tag }}</span></div>
             <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-success  btn-sm mt-3">Edit Show</a>
+                <router-link :to="{ name: 'editshow', params:{id: show.id}, query:{venue_id: venue_id} }" class="btn btn-success  btn-sm mt-3">Edit Show</router-link>
                 <a href="#" class="btn btn-outline-danger btn-sm mt-3">Delete Show</a>
             </div>
         </div>
@@ -24,6 +24,10 @@ export default {
         show:{
             type: Object,
             required: true,
+        },
+        venue_id:{
+            type: String,
+            required: true
         }
     }
 

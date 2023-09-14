@@ -106,9 +106,9 @@
       "dataadded": "05/02/2022",
       "shows": [
         {
-          "name": "The Advent",
+          "name": "Advent",
           "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
-          "ratings": 4,
+          "ratings": 3,
           "selected_timings": {
             "morning": false,
             "noon": true,
@@ -131,6 +131,7 @@
           }
         },
         {
+          "id": 2,
           "name": "Game",
           "city": "Delhi",
           "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
@@ -156,6 +157,7 @@
           }
         },
         {
+          "id": 3,
           "name": "R",
           "city": "Delhi",
           "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
@@ -275,6 +277,31 @@
             "comedy",
             "drama"
           ]
+        },
+        {
+          "name": "TT",
+          "city": "Kolkata",
+          "cover_image": "https://i.pinimg.com/originals/aa/00/65/aa0065d71d2d5785859c0636b3bbae99.jpg",
+          "ratings": 4,
+          "selected_timings": {
+            "morning": true,
+            "noon": true,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-10-28T07:41:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "violence",
+            "social delima",
+            "dark humours"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
         }
       ]
     },
@@ -285,6 +312,168 @@
       "capacity": "200",
       "shows": [],
       "id": 5
+    }
+  ],
+  "shows": [
+    {
+      "name": "Advent",
+      "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
+      "ratings": 3,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": true,
+        "night": false
+      },
+      "till_date": "2023-09-09T13:01:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "romantic",
+        "drama",
+        "love",
+        "scifi"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Game",
+      "city": "Delhi",
+      "venue_id": 1,
+      "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
+      "ratings": 3,
+      "selected_timings": {
+        "morning": false,
+        "noon": false,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-23T13:05:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "drama",
+        "action",
+        "thriller"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      }
+    },
+    {
+      "id": 3,
+      "name": "R",
+      "city": "Delhi",
+      "venue_id": 1,
+      "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
+      "ratings": 4,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-29T13:37:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "gore",
+        "dark humours"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      }
+    },
+    {
+      "id": 4,
+      "city": "Mumbai",
+      "name": "Inception",
+      "venue_id": 3,
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": false,
+        "night": true
+      },
+      "ratings": "5",
+      "date_added": "05/09/2021",
+      "till_date": null,
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "selected_tags": [
+        "scifi",
+        "action",
+        "drama"
+      ]
+    },
+    {
+      "id": 5,
+      "city": "Mumbai",
+      "name": "The Avengers:Endgame",
+      "venue_id": 4,
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": false,
+        "night": true
+      },
+      "ratings": "5",
+      "date_added": "05/09/2021",
+      "till_date": null,
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "selected_tags": [
+        "action",
+        "superpowers",
+        "scifi"
+      ]
+    },
+    {
+      "name": "TT",
+      "city": "Kolkata",
+      "cover_image": "https://i.pinimg.com/originals/aa/00/65/aa0065d71d2d5785859c0636b3bbae99.jpg",
+      "ratings": 4,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-10-28T07:41:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "social delima",
+        "dark humours"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 6
     }
   ]
 }

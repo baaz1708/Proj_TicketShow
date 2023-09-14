@@ -37,9 +37,33 @@ export default{
       return apiClient.delete('/venues/' + id)
     },
     async postShow(venue_id, show_data){
+      const post_show_res = await apiClient.post('/shows/', show_data)
       const response = await apiClient.get(`/venues/${venue_id}`);
       const venue = response.data;
       venue.shows.push(show_data);
       return apiClient.put(`/venues/${venue_id}`, venue )
+     
+    },
+  //   async getShow(venue_id, show_id){
+  //     const response = await apiClient.get(`/venues/${venue_id}`);
+  //     const venue = response.data;
+  //     const show = venue.shows.find(show => show.id === show_id);
+  //     return show;
+  // },
+   getShow(venue_id, show_id){
+    return apiClient.get('/shows/' + show_id )
+   },
+
+   async editShow(venue_id,show_id, show_data){
+    const response = await apiClient.get(`/venues/${venue_id}`);
+    const venue = response.data;
+    const showIndex = venue.shows.findIndex(show => show.id === show_id);
+    if (showIndex !== -1){
+      venue.shows[showIndex] = show_data;
     }
+    const _noneed = await apiClient.put(`/venues/${venue_id}`, venue);
+    return apiClient.put(`/shows/${show_id}`, show_data)
+
+   }
+
 }

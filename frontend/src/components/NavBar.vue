@@ -17,13 +17,13 @@
                     </li>
                     <li class="nav-item dropdown"> </li>
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        More Actions
                     </a>
                     <ul class="dropdown-menu">
                         <li v-if="ifAdmin"><h4 class="dropdown-item">Admin 🔖</h4></li>
                         <li v-else><h4 class="dropdown-item">User 🏷️</h4></li>   <!-- we can change it to {{ username }} -->
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </ul>

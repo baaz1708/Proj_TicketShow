@@ -50,14 +50,15 @@
             <div class="mt-2" style="right: 0 ; display: flex; justify-content: flex-end;">
                 <input type="text" placeholder="Search shows ..." v-model="search" class="form-control"> <!--style="margin-right: 10px;"-->
                 <select v-model="filter" class="select me-2 rounded bg-light" aria-label="Search by">
-                    <option value="tag"> by Tag</option>
-                    <option value="timing">by Timing</option>
+                    <option value="tag"> By Tag</option>
+                    <option value="timing"> By Timing</option>
+                    <option value="name"> By Name </option>
                 </select>
             </div>
             <router-link :to="{name:'addonshow', params:{id:id} , query:{city:Cityname} }"  v-if="Shows.length != 0" class=" btn btn-lg normbtn  -fill-gradient  mt-4 mb-5 "> ᴀᴅᴅᴏɴ ꜱʜᴏᴡ 📽️</router-link>
             <div v-if="Shows.length != 0" class="row row-cols-1 row-cols-md-4 g-4">
                 <div class="" v-for="show in filtered_shows" :key="show.id">
-                    <ShowCard  :show="show" />
+                    <ShowCard  :show="show" :venue_id="this.$route.params.id"/>
                 </div>
             </div>
             <div v-else class="row m-4">
@@ -129,11 +130,14 @@ export default {
                     show.selected_tags.some(tag => 
                     tag.toLowerCase().includes(this.search.toLowerCase()))
                     );
-                } elseif (this.filter === 'timing') {
-                return this.shows_list.filter((show) =>
-                Object.entries(show.selected_timings).some(([key, value]) =>
-                value === true && key.toLowerCase().includes(this.search.toLowerCase())
-                ))
+                } else if (this.filter === 'timing') {
+                    return this.shows_list.filter((show) =>
+                    Object.entries(show.selected_timings).some(([key, value]) =>
+                    value === true && key.toLowerCase().includes(this.search.toLowerCase())
+                    ));
+                } else if (this.filter === 'name') {
+                    return this.shows_list.filter((show) =>
+                    show.name.toLowerCase().includes(this.search.toLowerCase()))
                 }
             }
         }
