@@ -49,6 +49,26 @@
       "email": "tim@123.com",
       "password": "homepass",
       "id": 8
+    },
+    {
+      "email": "user@mail.com",
+      "password": "homepass",
+      "id": 9
+    },
+    {
+      "email": "user@mail.com",
+      "password": "hoempass",
+      "id": 10
+    },
+    {
+      "email": "gaba@mail.com",
+      "password": "homepass",
+      "id": 11
+    },
+    {
+      "email": "mama@mail.com",
+      "password": "homepass",
+      "id": 12
     }
   ],
   "register": [
@@ -70,7 +90,7 @@
   "cities": [
     {
       "id": 1,
-      "cityname": "sriganagagar"
+      "cityname": "Sriganganagar"
     },
     {
       "id": 2,
@@ -106,23 +126,99 @@
       "dataadded": "05/02/2022",
       "shows": [
         {
-          "id": 3,
-          "name": "R",
+          "name": "Vistor",
+          "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
+          "ratings": 3,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": true,
+            "evening": true,
+            "night": false
+          },
+          "till_date": "2023-09-08T10:42:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "thriller",
+            "drama"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Bista",
           "city": "Delhi",
-          "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
-          "ratings": 4,
+          "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
+          "ratings": 5,
+          "price": 150,
           "selected_timings": {
             "morning": false,
             "noon": true,
             "evening": true,
             "night": true
           },
-          "till_date": "2023-09-29T13:37:00.000Z",
+          "till_date": "2023-12-15T10:43:00.000Z",
           "date_added": "05/02/2002",
           "selected_tags": [
             "violence",
+            "social delima",
+            "love",
+            "action"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Shrin",
+          "city": "Delhi",
+          "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
+          "ratings": 5,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": false,
+            "evening": false,
+            "night": true
+          },
+          "till_date": "2023-09-22T10:44:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "social message",
+            "scifi"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Routel",
+          "city": "Delhi",
+          "cover_image": "https://img.wallpapersafari.com/desktop/1440/900/7/89/vViCug.jpg",
+          "ratings": 3,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": true,
+            "night": true
+          },
+          "till_date": "2023-09-29T10:45:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
             "gore",
-            "dark humours"
+            "dark humours",
+            "suspense"
           ],
           "bookings": {
             "morning": "0",
@@ -141,56 +237,81 @@
       "capacity": "48",
       "shows": [
         {
-          "id": 4,
-          "city": "Mumbai",
-          "name": "Inception",
-          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+          "name": "Binits",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/644/748/896/inception-folding-paris-wallpaper-preview.jpg",
+          "ratings": 4,
+          "price": 150,
           "selected_timings": {
-            "morning": false,
+            "morning": true,
             "noon": true,
             "evening": false,
             "night": true
           },
-          "ratings": "5",
-          "date_added": "05/09/2021",
-          "till_date": null,
+          "till_date": "2023-09-30T10:46:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "violence",
+            "social delima",
+            "autobiography"
+          ],
           "bookings": {
             "morning": "0",
             "noon": "0",
             "evening": "0",
             "night": "0"
-          },
-          "selected_tags": [
-            "scifi",
-            "action",
-            "drama"
-          ]
+          }
         },
         {
-          "id": 5,
+          "name": "Laura",
           "city": "Mumbai",
-          "name": "The Avengers:Endgame",
-          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+          "cover_image": "https://i.pinimg.com/originals/aa/00/65/aa0065d71d2d5785859c0636b3bbae99.jpg",
+          "ratings": 4,
+          "price": 150,
           "selected_timings": {
-            "morning": false,
+            "morning": true,
             "noon": true,
             "evening": false,
-            "night": true
+            "night": false
           },
-          "ratings": "5",
-          "date_added": "05/09/2021",
-          "till_date": null,
+          "till_date": "2023-09-23T10:47:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "drama",
+            "thriller",
+            "gore"
+          ],
           "bookings": {
             "morning": "0",
             "noon": "0",
             "evening": "0",
             "night": "0"
+          }
+        },
+        {
+          "name": "shakula",
+          "city": "Mumbai",
+          "cover_image": "https://inspirationtuts.com/wp-content/uploads/2020/07/12-3.jpg",
+          "ratings": 4,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": false,
+            "evening": true,
+            "night": true
           },
+          "till_date": "2023-09-29T10:48:00.000Z",
+          "date_added": "05/02/2002",
           "selected_tags": [
-            "action",
-            "superpowers",
-            "scifi"
-          ]
+            "thriller",
+            "drama",
+            "taboo"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
         }
       ]
     },
@@ -202,48 +323,23 @@
       "capacity": "57",
       "shows": [
         {
-          "id": 6,
-          "city": "Kolkata",
-          "name": "Laxmi Bomb",
-          "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
-          "selected_timings": {
-            "morning": false,
-            "noon": true,
-            "evening": false,
-            "night": true
-          },
-          "ratings": "5",
-          "date_added": "05/05/2022",
-          "till_date": null,
-          "bookings": {
-            "morning": "0",
-            "noon": "0",
-            "evening": "0",
-            "night": "0"
-          },
-          "selected_tags": [
-            "horror",
-            "comedy",
-            "drama"
-          ]
-        },
-        {
-          "name": "TT",
-          "city": "Kolkata",
-          "cover_image": "https://i.pinimg.com/originals/aa/00/65/aa0065d71d2d5785859c0636b3bbae99.jpg",
-          "ratings": 4,
+          "name": "Barfi",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/725/422/535/movies-hollywood-movies-wallpaper-preview.jpg",
+          "ratings": 5,
+          "price": 150,
           "selected_timings": {
             "morning": true,
             "noon": true,
-            "evening": false,
-            "night": false
+            "evening": true,
+            "night": true
           },
-          "till_date": "2023-10-28T07:41:00.000Z",
+          "till_date": "2023-09-30T10:50:00.000Z",
           "date_added": "05/02/2002",
           "selected_tags": [
             "violence",
-            "social delima",
-            "dark humours"
+            "gore",
+            "dark humours",
+            "taboo"
           ],
           "bookings": {
             "morning": "0",
@@ -259,109 +355,449 @@
       "city": "Mumbai",
       "dateadded": "05/02/2023",
       "capacity": "200",
-      "shows": [],
+      "shows": [
+        {
+          "name": "friya",
+          "city": "Mumbai",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/819/1014/341/elves-vampires-women-red-eyes-pointy-ears-hd-wallpaper-preview.jpg",
+          "ratings": 4,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": false,
+            "evening": true,
+            "night": true
+          },
+          "till_date": "2023-09-29T10:53:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "social message",
+            "social delima",
+            "autobiography",
+            "comedy"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Daken",
+          "city": "Mumbai",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/764/198/387/500px-pieber-men-fantasy-art-wallpaper-thumb.jpg",
+          "ratings": 5,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": false,
+            "evening": true,
+            "night": true
+          },
+          "till_date": "2024-08-24T10:54:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "social message",
+            "love",
+            "suspense"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Pautlun",
+          "city": "Mumbai",
+          "cover_image": "https://i.pinimg.com/736x/f7/28/77/f72877bc9bd165e98433a0034d4b55b7.jpg",
+          "ratings": 3,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": true,
+            "evening": false,
+            "night": true
+          },
+          "till_date": "2023-09-23T10:55:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "comedy",
+            "action",
+            "thriller",
+            "humour",
+            "dark humours"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "tamang",
+          "city": "Mumbai",
+          "cover_image": "https://cdn.wallpapersafari.com/14/2/EAfW3z.jpg",
+          "ratings": 4,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": false,
+            "evening": false,
+            "night": true
+          },
+          "till_date": "2023-09-29T11:02:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "drama",
+            "action",
+            "love",
+            "romantic",
+            "thriller"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "gotingen",
+          "city": "Mumbai",
+          "cover_image": "https://c4.wallpaperflare.com/wallpaper/542/296/967/tv-show-24-jack-bauer-kiefer-sutherland-wallpaper-preview.jpg",
+          "ratings": 4,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": true,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-09-22T11:03:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "violence",
+            "gore",
+            "dark humours",
+            "suspense",
+            "taboo"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        }
+      ],
       "id": 5
+    },
+    {
+      "name": "Kulpattam Cineplex",
+      "city": "Chennai",
+      "dateadded": "05/02/2023",
+      "capacity": "350",
+      "shows": [
+        {
+          "name": "Rust",
+          "cover_image": "https://wallpapercave.com/wp/wp6878038.jpg",
+          "ratings": 3,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-09-29T11:05:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "action",
+            "thriller",
+            "drama"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "friyu",
+          "city": "Chennai",
+          "cover_image": "https://wallpapercave.com/wp/wp3869494.jpg",
+          "ratings": 2,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-09-28T11:06:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "violence",
+            "gore"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Makar",
+          "city": "Chennai",
+          "cover_image": "https://rare-gallery.com/thumbs/948322-Frozen-movie-Frozen-2-Elsa.jpg",
+          "ratings": 2,
+          "price": 150,
+          "selected_timings": {
+            "morning": true,
+            "noon": false,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-09-24T11:07:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "social message",
+            "social delima"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        },
+        {
+          "name": "Blotus",
+          "city": "Chennai",
+          "cover_image": "https://i.pinimg.com/originals/f0/8e/88/f08e880aa19d31e32de422a562b66c79.jpg",
+          "ratings": 5,
+          "price": 150,
+          "selected_timings": {
+            "morning": false,
+            "noon": true,
+            "evening": false,
+            "night": false
+          },
+          "till_date": "2023-09-29T11:08:00.000Z",
+          "date_added": "05/02/2002",
+          "selected_tags": [
+            "action",
+            "suspense",
+            "comedy"
+          ],
+          "bookings": {
+            "morning": "0",
+            "noon": "0",
+            "evening": "0",
+            "night": "0"
+          }
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Simba Cinema",
+      "city": "Goa",
+      "dateadded": "05/02/2023",
+      "capacity": "500",
+      "shows": [],
+      "id": 7
+    },
+    {
+      "name": "Silver Rottary",
+      "city": "Delhi",
+      "dateadded": "05/02/2023",
+      "capacity": "600",
+      "shows": [],
+      "id": 8
+    },
+    {
+      "name": "Ajooba Mall",
+      "city": "Kolkata",
+      "dateadded": "05/02/2023",
+      "capacity": "600",
+      "shows": [],
+      "id": 9
+    },
+    {
+      "name": "Dawood mutliview",
+      "city": "Sriganganagar",
+      "dateadded": "05/02/2023",
+      "capacity": "20",
+      "shows": [],
+      "id": 10
+    },
+    {
+      "name": "Gold theater",
+      "city": "Sriganganagar",
+      "dateadded": "05/02/2023",
+      "capacity": "30",
+      "shows": [],
+      "id": 11
     }
   ],
   "shows": [
     {
-      "id": 3,
-      "name": "R",
-      "city": "Delhi",
-      "venue_id": 1,
-      "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
-      "ratings": 4,
+      "name": "Vistor",
+      "cover_image": "https://i.pinimg.com/736x/69/ff/96/69ff9666056b04742a2008586e98389c.jpg",
+      "ratings": 3,
+      "price": 150,
       "selected_timings": {
-        "morning": false,
+        "morning": true,
         "noon": true,
         "evening": true,
-        "night": true
+        "night": false
       },
-      "till_date": "2023-09-29T13:37:00.000Z",
+      "till_date": "2023-09-08T10:42:00.000Z",
       "date_added": "05/02/2002",
       "selected_tags": [
-        "violence",
-        "gore",
-        "dark humours"
+        "thriller",
+        "drama"
       ],
       "bookings": {
         "morning": "0",
         "noon": "0",
         "evening": "0",
         "night": "0"
-      }
+      },
+      "id": 1
     },
     {
-      "id": 4,
-      "city": "Mumbai",
-      "name": "Inception",
-      "venue_id": 3,
-      "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+      "name": "Bista",
+      "city": "Delhi",
+      "cover_image": "https://i.pinimg.com/originals/fd/60/9a/fd609ad5b41ddeee10bb9bb15c8e869a.jpg",
+      "ratings": 5,
+      "price": 150,
       "selected_timings": {
         "morning": false,
         "noon": true,
-        "evening": false,
+        "evening": true,
         "night": true
       },
-      "ratings": "5",
-      "date_added": "05/09/2021",
-      "till_date": null,
+      "till_date": "2023-12-15T10:43:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "social delima",
+        "love",
+        "action"
+      ],
       "bookings": {
         "morning": "0",
         "noon": "0",
         "evening": "0",
         "night": "0"
       },
-      "selected_tags": [
-        "scifi",
-        "action",
-        "drama"
-      ]
+      "id": 2
     },
     {
-      "id": 5,
-      "city": "Mumbai",
-      "name": "The Avengers:Endgame",
-      "venue_id": 4,
-      "cover_image": "https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg",
+      "name": "Shrin",
+      "city": "Delhi",
+      "cover_image": "https://i.pinimg.com/originals/7c/44/70/7c447069acaa90b45782c981fc3e92f4.jpg",
+      "ratings": 5,
+      "price": 150,
       "selected_timings": {
-        "morning": false,
-        "noon": true,
+        "morning": true,
+        "noon": false,
         "evening": false,
         "night": true
       },
-      "ratings": "5",
-      "date_added": "05/09/2021",
-      "till_date": null,
-      "bookings": {
-        "morning": "0",
-        "noon": "0",
-        "evening": "0",
-        "night": "0"
-      },
+      "till_date": "2023-09-22T10:44:00.000Z",
+      "date_added": "05/02/2002",
       "selected_tags": [
-        "action",
-        "superpowers",
+        "social message",
         "scifi"
-      ]
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 3
     },
     {
-      "name": "TT",
-      "city": "Kolkata",
+      "name": "Routel",
+      "city": "Delhi",
+      "cover_image": "https://img.wallpapersafari.com/desktop/1440/900/7/89/vViCug.jpg",
+      "ratings": 3,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-29T10:45:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "gore",
+        "dark humours",
+        "suspense"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 4
+    },
+    {
+      "name": "Binits",
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/644/748/896/inception-folding-paris-wallpaper-preview.jpg",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": false,
+        "night": true
+      },
+      "till_date": "2023-09-30T10:46:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "social delima",
+        "autobiography"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 5
+    },
+    {
+      "name": "Laura",
+      "city": "Mumbai",
       "cover_image": "https://i.pinimg.com/originals/aa/00/65/aa0065d71d2d5785859c0636b3bbae99.jpg",
       "ratings": 4,
+      "price": 150,
       "selected_timings": {
         "morning": true,
         "noon": true,
         "evening": false,
         "night": false
       },
-      "till_date": "2023-10-28T07:41:00.000Z",
+      "till_date": "2023-09-23T10:47:00.000Z",
       "date_added": "05/02/2002",
       "selected_tags": [
-        "violence",
-        "social delima",
-        "dark humours"
+        "drama",
+        "thriller",
+        "gore"
       ],
       "bookings": {
         "morning": "0",
@@ -370,6 +806,384 @@
         "night": "0"
       },
       "id": 6
+    },
+    {
+      "name": "shakula",
+      "city": "Mumbai",
+      "cover_image": "https://inspirationtuts.com/wp-content/uploads/2020/07/12-3.jpg",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": false,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-29T10:48:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "thriller",
+        "drama",
+        "taboo"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 7
+    },
+    {
+      "name": "Barfi",
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/725/422/535/movies-hollywood-movies-wallpaper-preview.jpg",
+      "ratings": 5,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-30T10:50:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "gore",
+        "dark humours",
+        "taboo"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 8
+    },
+    {
+      "name": "gulla",
+      "cover_image": "https://www.flavourmag.co.uk/files/2016/12/Born-to-Kill.jpg",
+      "ratings": 3,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": true,
+        "night": false
+      },
+      "till_date": "2023-09-23T10:52:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "action",
+        "romantic",
+        "drama",
+        "love"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 9
+    },
+    {
+      "name": "friya",
+      "city": "Mumbai",
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/819/1014/341/elves-vampires-women-red-eyes-pointy-ears-hd-wallpaper-preview.jpg",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": false,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2023-09-29T10:53:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "social message",
+        "social delima",
+        "autobiography",
+        "comedy"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 10
+    },
+    {
+      "name": "Daken",
+      "city": "Mumbai",
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/764/198/387/500px-pieber-men-fantasy-art-wallpaper-thumb.jpg",
+      "ratings": 5,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": false,
+        "evening": true,
+        "night": true
+      },
+      "till_date": "2024-08-24T10:54:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "social message",
+        "love",
+        "suspense"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 11
+    },
+    {
+      "name": "Pautlun",
+      "city": "Mumbai",
+      "cover_image": "https://i.pinimg.com/736x/f7/28/77/f72877bc9bd165e98433a0034d4b55b7.jpg",
+      "ratings": 3,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": false,
+        "night": true
+      },
+      "till_date": "2023-09-23T10:55:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "comedy",
+        "action",
+        "thriller",
+        "humour",
+        "dark humours"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 12
+    },
+    {
+      "name": "tamag",
+      "city": "Mumbai",
+      "cover_image": "https://fsa.zobj.net/crop.php?r=t7Q9iLL1X7A03vwyNgJPibvlIP5v3HlhkYjxRNd6s5zgADeCBCr77ENF9VMuKUSzArp8MG4ZL_3uOzXgYRm1Zr4uf8849idzrM0U9JYaUYizO4j4nNVB3BrncFGTkk4CMoM9SN6Z5tvfBLog",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-22T10:57:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "social message",
+        "love",
+        "violence",
+        "social delima",
+        "comedy"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 13
+    },
+    {
+      "name": "tamang",
+      "city": "Mumbai",
+      "cover_image": "https://cdn.wallpapersafari.com/14/2/EAfW3z.jpg",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": false,
+        "evening": false,
+        "night": true
+      },
+      "till_date": "2023-09-29T11:02:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "drama",
+        "action",
+        "love",
+        "romantic",
+        "thriller"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 14
+    },
+    {
+      "name": "gotingen",
+      "city": "Mumbai",
+      "cover_image": "https://c4.wallpaperflare.com/wallpaper/542/296/967/tv-show-24-jack-bauer-kiefer-sutherland-wallpaper-preview.jpg",
+      "ratings": 4,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-22T11:03:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "gore",
+        "dark humours",
+        "suspense",
+        "taboo"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 15
+    },
+    {
+      "name": "Rust",
+      "cover_image": "https://wallpapercave.com/wp/wp6878038.jpg",
+      "ratings": 3,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-29T11:05:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "action",
+        "thriller",
+        "drama"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 16
+    },
+    {
+      "name": "friyu",
+      "city": "Chennai",
+      "cover_image": "https://wallpapercave.com/wp/wp3869494.jpg",
+      "ratings": 2,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-28T11:06:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "violence",
+        "gore"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 17
+    },
+    {
+      "name": "Makar",
+      "city": "Chennai",
+      "cover_image": "https://rare-gallery.com/thumbs/948322-Frozen-movie-Frozen-2-Elsa.jpg",
+      "ratings": 2,
+      "price": 150,
+      "selected_timings": {
+        "morning": true,
+        "noon": false,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-24T11:07:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "social message",
+        "social delima"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 18
+    },
+    {
+      "name": "Blotus",
+      "city": "Chennai",
+      "cover_image": "https://i.pinimg.com/originals/f0/8e/88/f08e880aa19d31e32de422a562b66c79.jpg",
+      "ratings": 5,
+      "price": 150,
+      "selected_timings": {
+        "morning": false,
+        "noon": true,
+        "evening": false,
+        "night": false
+      },
+      "till_date": "2023-09-29T11:08:00.000Z",
+      "date_added": "05/02/2002",
+      "selected_tags": [
+        "action",
+        "suspense",
+        "comedy"
+      ],
+      "bookings": {
+        "morning": "0",
+        "noon": "0",
+        "evening": "0",
+        "night": "0"
+      },
+      "id": 19
+    }
+  ],
+  "bookings": [
+    {
+      "id": 0,
+      "show_id": "",
+      "user_id": "",
+      "booked_slots": {},
+      "booked_date": null
+    },
+    {
+      "show_id": 2,
+      "user_id": 12,
+      "booked_date": "2023-09-21T19:18:00.000Z",
+      "booked_slots": {
+        "morning": 0,
+        "noon": 0,
+        "evening": 3,
+        "night": 0
+      },
+      "id": 1
     }
   ]
 }

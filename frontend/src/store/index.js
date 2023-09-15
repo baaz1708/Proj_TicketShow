@@ -4,6 +4,7 @@ import * as register_user from "./modules/register_user.js"
 import * as city_list from "./modules/city_list.js"
 import * as venues from "./modules/venues.js"
 import * as shows from "./modules/shows.js"
+import * as bookings from "./modules/bookings.js"
 
 export default createStore({
   modules:{
@@ -11,7 +12,8 @@ export default createStore({
     register_user,
     city_list,
     venues,
-    shows
+    shows,
+    bookings
   },
   state: {},
   getters: {},

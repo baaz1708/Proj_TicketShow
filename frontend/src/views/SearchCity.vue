@@ -2,10 +2,10 @@
   <div class="container m-5">
     <div class="input-group mb-3">
         <span class="input-group-text" id="city">🌐</span>
-        <input type="text" class="form-control" placeholder="Search City" aria-label="City" aria-describedby="city" v-model="search">
+        <input type="text" class="form-control" placeholder="Search City to Locate shows" aria-label="City" aria-describedby="city" v-model="search">
     </div>
     <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action" v-for="city in filtered_list" :key="city.id">{{ city.cityname }}</a>
+        <router-link :to="{name : 'showlist', params:{city_name : city.cityname } }" class="list-group-item list-group-item-action" v-for="city in filtered_list" :key="city.id">{{ city.cityname }}</router-link>
     </div>
   </div>
 </template>

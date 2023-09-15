@@ -52,6 +52,14 @@ export const actions = {
         .then(() =>{
             console.log('After deleteing show')
         })
+    },
+
+    getShow({commit}, show_id){
+        return EventService.getUserShow(show_id.id)
+        .then((res) =>{
+            console.log('After getting user show ', res.data)
+            commit('SET_SHOW', res.data)
+        })
     }
 
 }

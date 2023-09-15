@@ -75,7 +75,20 @@ export default{
     }
     const _noneed = apiClient.put(`/venues/${venue_id}`, venue);
     return apiClient.delete(`/shows/${show_id}`)
-}
+  },
 
+  getVenuesByCity(city_name){
+    return apiClient.get('/venues').then(response =>{
+      console.log('response from eventservice city filter', response)
+      const venues = response.data.filter(venue => venue.city.toLowerCase() === city_name.toLowerCase());
+      return venues
+    })
+  },
+  getUserShow(show_id){
+    return apiClient.get('/shows/' + show_id )
+   },
 
+   postBooking(booking_data){
+    return apiClient.post('bookings', booking_data)
+   }
 }

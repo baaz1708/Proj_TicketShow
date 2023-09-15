@@ -58,6 +58,16 @@ export const actions = {
         .then(() =>{
             console.log('After deleting the venue')
         })
+    },
+
+    fetchVenuesByCity({commit}, city){
+        console.log('before get venue by city in action', 'cityname',city.city_name)
+        return EventService.getVenuesByCity(city.city_name)
+        .then((res) =>{
+            console.log('After getting venues by city',res)
+            commit('SET_VENUES', res)
+
+        })
     }
 
 }

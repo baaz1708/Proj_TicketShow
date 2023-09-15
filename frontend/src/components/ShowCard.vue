@@ -2,7 +2,7 @@
     <div class="card " >
         <img :src="show.cover_image" class="card-img-top" alt="...">
         <div class="card-body ">
-            <h5 class="card-title text-capitalize  fw-semibold">{{ show.name }}</h5>
+            <h5 class="card-title text-capitalize  fw-semibold">{{ show.name }} <span class="ms-5 badge bg-info">${{show.price}}</span> </h5>
                 <div class="d-flex justify-content-end">
                     <span v-for="(star, index) in 5" :key="index" >
                         <i class="bi star" :class="{ 'bi-star-fill': index < show.ratings, 'bi-star': index >= show.ratings }"></i>

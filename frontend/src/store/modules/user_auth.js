@@ -40,7 +40,7 @@ export const getters = {
         return !!state.user
     },
      ifAdmin (state) {
-        return true
+        return false
         // return state.user && state.user.role === 'admin'
      }
 }

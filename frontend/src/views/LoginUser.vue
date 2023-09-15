@@ -13,7 +13,7 @@
             </template>
 
             <div class="">
-                <label for="password" class="form-lable">Password</label>
+                <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" v-model="password" value @blur="v$.password.$touch()" class="form-control { error: v$.password.$error }">
             </div>
             <template v-if="v$.password.$error">
@@ -62,6 +62,7 @@ export default {
                 password: this.password
             }).then(() => {
                 console.log("logged in posted")
+                this.$router.push({name:'home'})
             }).catch((err) => {
                 console.log(err)
                 if (err.response && err.response.data && err.response.data.message){

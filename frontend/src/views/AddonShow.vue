@@ -17,6 +17,14 @@
             <p class="errorMessage">Category is required</p>
         </div>
 
+        <div class="col-12">
+        <label for="price" class="form-label">Ticket price </label>
+        <input type="text" class="form-control " id="price"  v-model="price" @blur="v$.price.$touch()" placeholder="Paste your picture url here without quotes">
+      </div>
+      <div v-if="v$.price.$error" class="my-0">
+            <p class="errorMessage">Category is required</p>
+        </div>
+
       <div class="col-12">
         <label for="ratings" class="form-label">Ratings</label>
         <select id="ratings" class="form-select text-align-center" v-model="ratings" @blur="v$.ratings.$touch()">
@@ -83,6 +91,7 @@ export default {
             cover_image:"",
             till_date: null,
             ratings:"",
+            price:150,
             timings:{
                 "morning": "9am-12pm",
                 "noon": "2pm-5pm",
@@ -106,6 +115,7 @@ export default {
             name: {required},
             cover_image: {required},
             ratings: {required},
+            price: {required},
             selected_timings: {required},
             till_date: {required}
         }
@@ -124,6 +134,7 @@ export default {
                 city: this.$route.query.city,
                 cover_image: this.cover_image,
                 ratings: this.ratings,
+                price: this.price,
                 selected_timings: this.selected_timings,
                 till_date: this.till_date,
                 date_added:"05/02/2002",

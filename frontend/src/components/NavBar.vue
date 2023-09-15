@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../assets/logo.png" alt="Logo" width="26" height="24" class="d-inline-block align-text-top "> 
-                <strong>𝒯𝒾𝒸𝓀𝑒𝓉 𝒮𝒽𝑜𝓌</strong>
+                <strong>𝒯𝒾𝒸𝓀𝑒𝓉🍿𝒮𝒽𝑜𝓌</strong>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
@@ -23,12 +23,12 @@
                         <li v-if="ifAdmin"><h4 class="dropdown-item">Admin 🔖</h4></li>
                         <li v-else><h4 class="dropdown-item">User 🏷️</h4></li>   <!-- we can change it to {{ username }} -->
                         <li><hr class="dropdown-divider"></li>
-                        <li><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
+                        <li v-if="ifAdmin"><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </ul>
                 <form v-if="!ifAdmin" class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search Shows..." aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </div>

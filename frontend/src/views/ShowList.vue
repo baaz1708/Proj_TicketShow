@@ -1,24 +1,22 @@
 <template>
-  <div class="movie-list p-2">
-    <h2>Recent Releases</h2>
-    <div class="movie-list-container">
-      <div class="card mx-1" v-for="movie in movies" :key="movie.title">
-        <img :src="movie.coverImage" class="card-img-top" :alt="movie.title" />
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">{{ movie.movietext }}</p>
-          <a href="#" class="btn btn-success">Book show</a>
-        </div>
-      </div>
-    </div>
-    <h2>Recent Releases</h2>
-    <div class="movie-list-container">
-      <div class="card mx-1" v-for="movie in movies" :key="movie.title">
-        <img :src="movie.coverImage" class="card-img-top" :alt="movie.title" />
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">{{ movie.movietext }}</p>
-          <a href="#" class="btn btn-success">Book show</a>
+  <div >
+    <h2 class="mt-2"><span class=" badge bg-secondary">Shows in {{ venueCity }}</span></h2>
+    <div v-for="venue in venues" :key="venue.id" class="movie-list p-2">
+      <h2 class="myfont mt-5 mb-3 bg-success bg-opacity-10 border-bottom border-success">{{ venue.name }}</h2>
+      <div class="movie-list-container ">
+        <div class="card mx-1" v-for="show in filteredShows(venue.shows)" :key="show.name"  >
+          <img :src="show.cover_image" class="card-img-top" :alt="show.name" />
+          <div class="card-body bg-success bg-opacity-10">
+            <h5 class="card-title">{{ show.name }}</h5>
+            <div class="d-flex justify-content-end">
+                <span v-for="(star, index) in 5" :key="index" >
+                    <i class="bi star" :class="{ 'bi-star-fill': index < show.ratings, 'bi-star': index >= show.ratings }"></i>
+                </span>
+            </div>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <div class=" d-flex flex-wrap align-items-start my-1"><span v-for="tag in show.selected_tags" :key="tag" class="badge bg-secondary bg-opacity-10  text-bg-light mx-1">{{ tag }}</span></div>
+            <router-link :to="{name : 'bookshow', params:{id : show.name} }" class="btn -fill-gradient mt-2">Book show </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -26,38 +24,47 @@
 </template>
 
 <script>
+import store from '@/store'
+
+function getVenuesByCity(routeTo,next){
+    const city_name = routeTo.params.city_name;
+    console.log('routeTo.params.city_name=',routeTo.params.city_name)
+    store.dispatch('venues/fetchVenuesByCity',{
+      city_name : city_name
+    }).then(() => {
+        next()
+    })
+}
+
 export default {
-  name: 'MovieList',
+  beforeRouteEnter(routeTo,routeFrom,next){
+        getVenuesByCity(routeTo,next)
+        },
+    beforeRouteUpdate(routeTo,routeFrom,next){
+        getVenuesByCity(routeTo,next)
+    },
+
   data() {
     return {
-      movies: [
-        {
-          title: 'Nasha Jurr Gangsters ',
-          coverImage: 'https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg',
-          movietext: 'Sometext',
-          rating: 4
-        },
-        {
-          title: 'Kokomo City',
-          coverImage: 'https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg',
-          movietext: 'Sometext',
-          rating: 5
-        },
-        {
-          title: 'Raja City',
-          coverImage: 'https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg',
-          movietext: 'Sometext',
-          rating: 5
-        },
-        {
-          title: 'Kokomo City',
-          coverImage: 'https://c4.wallpaperflare.com/wallpaper/267/666/423/joker-2019-movie-joker-joaquin-phoenix-movies-dancing-hd-wallpaper-preview.jpg',
-          movietext: 'Sometext',
-          rating: 5
-        },
-        // ...
-      ]
     }
+  },
+
+  methods: {
+    filteredShows(shows){
+      return shows.filter(show => new Date(show.till_date) > new Date());
+    }
+  },
+
+  computed: {
+    venues(){
+      return store.state.venues.venues
+    },
+
+    venueCity(){
+      return store.state.venues.venues[1].city
+    },
+
+    
   }
 }
 </script>
@@ -77,8 +84,15 @@ export default {
   width: 15rem;
 }
 
+.myfont{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 .rating {
   color: #f5c518;
+}
+
+.headingfont{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 </style>

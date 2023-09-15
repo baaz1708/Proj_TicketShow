@@ -11,6 +11,8 @@ import AddVenue from "../views/AddVenue.vue"
 import VenueCrud from "../views/VenueCrud"
 import AddonShow from "../views/AddonShow.vue"
 import EditShow from "../views/EditShow.vue"
+import BookShow from "../views/BookShow.vue"
+import BookedTickets from "../views/BookedTickets.vue"
 
 const routes = [
   {
@@ -34,7 +36,7 @@ const routes = [
     component: RegisterUser
   },
   {
-    path: "/showlist",
+    path: "/showlist/:city_name",
     name: "showlist",
     component: ShowList,
     meta: {requiresAuth: true}
@@ -72,6 +74,18 @@ const routes = [
     path:"/editshow/:id",
     name:"editshow",
     component: EditShow,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/bookshow/:id",
+    name:"bookshow",
+    component: BookShow,
+    meta: {requiresAuth: true}
+  },
+  {
+    path:"/bookedtickets/:id",
+    name: "bookedtickets",
+    component: BookedTickets,
     meta: {requiresAuth: true}
   }
 ];
