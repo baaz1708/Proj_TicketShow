@@ -18,7 +18,7 @@ export const actions = {
    async addShow({commit}, payload){   //or const { venue_id, ...dataWithoutVenueId } = show_data;
     const {venue_id, ...show_data } = payload
     console.log('Before adding show in action', 'venue_id',venue_id, 'show_data',show_data)
-    return EventService.postShow(venue_id, show_data)
+    return EventService.postShow(payload)
         .then((res) =>{
             console.log('After posting show in venue', res.data)
         })

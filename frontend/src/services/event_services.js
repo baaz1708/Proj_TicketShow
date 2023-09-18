@@ -36,12 +36,12 @@ export default{
     deleteVenue(id){
       return apiClient.delete('/venues/' + id)
     },
-    async postShow(venue_id, show_data){
-      const post_show_res = await apiClient.post('/shows/', show_data)
-      const response = await apiClient.get(`/venues/${venue_id}`);
-      const venue = response.data;
-      venue.shows.push(show_data);
-      return apiClient.put(`/venues/${venue_id}`, venue )
+    async postShow(show_data){
+      return apiClient.post('/shows/', show_data)
+      // const response = await apiClient.get(`/venues/${venue_id}`);
+      // const venue = response.data;
+      // venue.shows.push(show_data);
+      // return apiClient.put(`/venues/${venue_id}`, venue )
      
     },
   //   async getShow(venue_id, show_id){

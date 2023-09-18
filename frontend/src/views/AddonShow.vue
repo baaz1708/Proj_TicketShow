@@ -131,7 +131,6 @@ export default {
             this.$store.dispatch('shows/addShow', {
                 venue_id: this.$route.params.id,
                 name: this.name,
-                city: this.$route.query.city,
                 cover_image: this.cover_image,
                 ratings: this.ratings,
                 price: this.price,

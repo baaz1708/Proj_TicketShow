@@ -18,75 +18,80 @@ const routes = [
   {
     path: "/test",
     name: "test",
-    component: TestUser
+    component: TestUser,
+    meta: {requiresAuth: false, roles:['Admin']}
   },
   {
     path: "/",
     name: "home",
     component: HomeView,
+    meta: {requiresAuth: false, roles:['Admin','normal']}
   },
   {
     path: "/login",
     name: "login",
-    component: LoginUser
+    component: LoginUser,
+    meta: {requiresAuth: false, roles:['Admin', 'normal']}
   },
   {
     path: "/register",
     name: "register",
-    component: RegisterUser
+    component: RegisterUser,
+    meta: {requiresAuth: false, roles:['Admin','normal']}
   },
   {
     path: "/showlist/:city_name",
     name: "showlist",
     component: ShowList,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', 'normal']}
   },
   {
     path: "/searchcity",
     name: "searchcity",
     component: SearchCity,
+    meta: {requiresAuth: true, roles:['Admin', 'normal']}
   },
   {
     path: "/addshow",
     name: "addshow",
     component: AddShow,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', ]}
   },
   {
     path:"/addvenue",
     name: "addvenue",
     component: AddVenue,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', ]}
   },
   {
     path:"/venuecrud/:id",
     name: "venuecrud",
     component: VenueCrud,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', ]}
   },
   {
     path:"/addonshow/:id",
     name: "addonshow",
     component: AddonShow,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', ]}
   },
   {
     path:"/editshow/:id",
     name:"editshow",
     component: EditShow,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', ]}
   },
   {
     path:"/bookshow/:id",
     name:"bookshow",
     component: BookShow,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', 'normal']}
   },
   {
     path:"/bookedtickets/:id",
     name: "bookedtickets",
     component: BookedTickets,
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, roles:['Admin', 'normal']}
   }
 ];
 
@@ -98,10 +103,20 @@ const router = createRouter({
 router.beforeEach((routeTo, routeFrom, next) => {
   NProgress.start()
   const loggedIn = localStorage.getItem('user')
-  if (routeTo.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
-    next({ name: 'login' })
+  const user = JSON.parse(localStorage.getItem('user')) // assuming user is stored as a JSON string
+  const userRoles = user.roles // assuming roles is a property of user
+
+  if (routeTo.matched.some(record => record.meta.requiresAuth)) {
+    if (!loggedIn) {
+      next({ name: 'login' }) // redirect to login page if not authenticated
+    } else if (routeTo.matched.some(record => record.meta.roles && record.meta.roles.some(role => userRoles.includes(role)))) {
+      next() // proceed if user has at least one of the required roles
+    } else {
+      next({ name: 'test' }) // redirect to not authorized page if role not matched
+    }
+  } else {
+    next() // make sure to always call next()!
   }
-  next()
 })
 
 router.afterEach(() => {

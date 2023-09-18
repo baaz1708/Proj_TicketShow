@@ -21,12 +21,12 @@
 
         <div class="col-md-4">
             <label for="Cityname" class="form-label">City</label>
-            <select id="Cityname" v-model="Cityname"  @blur="v$.Cityname.$touch()" class="form-select { error: v$.Cityname.$error }">
+            <select id="Cityname" v-model="Cityid"   @blur="v$.Cityid.$touch()" class="form-select { error: v$.Cityid.$error }">
             <option selected>Choose...</option>
-            <option v-for="city in citylist" :key="city.id">{{ city.cityname }}</option>
+            <option v-for="city in citylist" :key="city.id" :value="city.id">{{ city.cityname }}</option>
             </select>
         </div>
-        <div v-if="v$.Cityname.$dirty && Cityname === 'Choose...' ">
+        <div v-if="v$.Cityid.$dirty && Cityid === 'Choose...' ">
             <p class="errorMessage">Category is required</p>
         </div>
 
@@ -59,7 +59,7 @@ export default {
         return {
             Venuename:"",
             Capacity: "",
-            Cityname: "",
+            Cityid: "",
             errors: []
         }
     },
@@ -67,17 +67,17 @@ export default {
         return {
             Venuename: {required},
             Capacity: {required},
-            Cityname: {required}
+            Cityid: {required}
         }
     },
 
     methods:{
         addVenue(){
-            if (this.Cityname != 'Choose...'){
+            if (this.Cityid != 'Choose...'){
                 console.log('Before postvenue action data :', this.Venuename)
                 this.$store.dispatch('venues/addVenue' , {
                     name: this.Venuename,
-                    city: this.Cityname,
+                    city_id: this.Cityid,
                     dateadded: '05/02/2023',
                     capacity: this.Capacity,
                     shows:[]

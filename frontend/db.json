@@ -83,7 +83,6 @@
       "username": "newuser",
       "email": "newuser@mail.com",
       "password": "homepass",
-      "confirm_password": "homepass",
       "id": 2
     }
   ],
