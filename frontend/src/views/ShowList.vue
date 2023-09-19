@@ -27,10 +27,10 @@
 import store from '@/store'
 
 function getVenuesByCity(routeTo,next){
-    const city_name = routeTo.params.city_name;
-    console.log('routeTo.params.city_name=',routeTo.params.city_name)
-    store.dispatch('venues/fetchVenuesByCity',{
-      city_name : city_name
+    const city_id = routeTo.params.city_id;
+    console.log('routeTo.params.city_name=',routeTo.params.city_id)
+    store.dispatch('city_list/fetchCity',{
+      city_id : city_id
     }).then(() => {
         next()
     })
@@ -57,11 +57,11 @@ export default {
 
   computed: {
     venues(){
-      return store.state.venues.venues
+      return store.state.city_list.city.venues
     },
 
     venueCity(){
-      return store.state.venues.venues[1].city
+      return store.state.city_list.city.name
     },
 
     

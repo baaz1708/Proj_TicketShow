@@ -78,9 +78,7 @@ export default {
                 this.$store.dispatch('venues/addVenue' , {
                     name: this.Venuename,
                     city_id: this.Cityid,
-                    dateadded: '05/02/2023',
                     capacity: this.Capacity,
-                    shows:[]
                 }).then(() =>{
                     this.$router.push({name: 'addshow'})
                 }).catch((err) =>{

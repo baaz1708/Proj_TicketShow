@@ -15,10 +15,9 @@ export const mutations = {
 }
 
 export const actions = {
-   async addShow({commit}, payload){   //or const { venue_id, ...dataWithoutVenueId } = show_data;
-    const {venue_id, ...show_data } = payload
-    console.log('Before adding show in action', 'venue_id',venue_id, 'show_data',show_data)
-    return EventService.postShow(payload)
+   async addShow({commit}, show_data){   //or const { venue_id, ...dataWithoutVenueId } = show_data;
+    console.log('Before adding show in action', 'show_data',show_data)
+    return EventService.postShow(show_data)
         .then((res) =>{
             console.log('After posting show in venue', res.data)
         })
@@ -26,8 +25,8 @@ export const actions = {
 
     fetchShow({commit},payload){
         const {show_id, venue_id} = payload
-        console.log('Before get show in action', 'showid',show_id, 'venueid',venue_id)
-        return EventService.getShow(show_id,venue_id)
+        console.log('Before get show in action', 'showid',show_id)
+        return EventService.getShow(show_id)
         .then((res) =>{
             console.log('After getting show', res.data)
             commit('SET_SHOW', res.data)
@@ -36,9 +35,9 @@ export const actions = {
     },
 
     editShow({commit}, payload){
-        const {venue_id,show_id, ...show_data } = payload
-        console.log('Before editing show in action', 'venue_id',venue_id, 'show_data',show_data, 'show_id',show_id)
-        return EventService.editShow(venue_id,show_id, show_data)
+        const {show_id, ...show_data } = payload
+        console.log('Before editing show in action', 'show_data',show_data, 'show_id',show_id)
+        return EventService.editShow(show_id, show_data)
         .then((res) =>{
             console.log('After editing show in venue', res.data)
             commit('SET_SHOW', res.data)
@@ -47,8 +46,8 @@ export const actions = {
 
     deleteShow({commit},payload){
         const {show_id, venue_id} = payload
-        console.log('Before deleting show', 'showID',show_id, 'venueID', venue_id)
-        return EventService.deleteShow(show_id,venue_id)
+        console.log('Before deleting show', 'showID',show_id)
+        return EventService.deleteShow(show_id)
         .then(() =>{
             console.log('After deleteing show')
         })
