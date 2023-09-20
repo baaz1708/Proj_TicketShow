@@ -1,9 +1,29 @@
-import json
+import json,jwt
+from functools import wraps
 from flask import request,jsonify
-from datetime import datetime
-from werkzeug.datastructures import ImmutableMultiDict
+from datetime import datetime,timedelta
 from flask_api import app,db,bcrypt
 from flask_api.models import User,City,Venue,Show,Tag,Booking
+
+def token_required(f):
+    @wraps(f)
+    def decorated(*args,**kwargs):
+        token = None
+        if 'Authorization' in request.headers:
+            token =  request.headers['Authorization'].split(' ')[1]
+            print('came from authorization header',token)
+        if not token:
+            return jsonify({'message':'Token is missing!'}), 401
+        try:
+            data = jwt.decode(token,app.config['SECRET_KEY'],algorithms=['HS256'])
+            print(data)
+            token_user=User.query.filter_by(id=data['user_id']).first()
+            print(token_user)
+        except Exception as e:
+            print(e)
+            return jsonify({'message': 'Token is invalid!'}), 401
+        return f(token_user,*args, **kwargs)
+    return decorated
 
 @app.route('/')
 def index():
@@ -20,6 +40,9 @@ def index():
 def register():
     data = request.get_json()
     if data:
+        existing_user = User.query.filter_by(email=data['email']).first()
+        if existing_user:
+            return jsonify({"message": "This email is already registered."}), 400
         hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
         user = User(username=data['username'], email=data['email'], password=hashed_password)
         db.session.add(user)
@@ -34,19 +57,25 @@ def login():
     if data:
         user = User.query.filter_by(email=data['email']).first()
         if user and bcrypt.check_password_hash(user.password, data['password']):
-            return jsonify(user.to_dict()), 200
+            exp_time = datetime.utcnow() + timedelta(hours=24)
+            payload = {'user_id': user.id, 'exp':exp_time}
+            token= jwt.encode(payload,app.config['SECRET_KEY'],algorithm='HS256')
+            print(f'{user.username} is authenticated')
+            return jsonify({'user':user.to_dict(), 'token':token}), 200
         else:
             return jsonify({"message": "Invalid credentials."}), 401
     else:
         return jsonify({"message": "Invalid payload."}), 400
 
 @app.route("/cities", methods=['GET'])
-def get_cities():
+@token_required
+def get_cities(token_user):
     cities = [city.to_dict() for city in City.query.all()]
     return jsonify(cities), 200
 
 @app.route("/cities/<int:id>", methods=['GET'])
-def get_city(id):
+@token_required
+def get_city(token_user,id):
     city = db.session.get(City, id)
     if city:
         return jsonify(city.to_dict()), 200
@@ -55,7 +84,8 @@ def get_city(id):
 
 # GET all venues
 @app.route("/venues", methods=['GET'])
-def get_venues():
+@token_required
+def get_venues(token_user):
     venues = [venue.to_dict() for venue in Venue.query.all()]
     return jsonify(venues), 200
 
@@ -73,7 +103,8 @@ def post_venue():
 
 # GET a specific venue by id
 @app.route("/venues/<int:id>", methods=['GET'])
-def get_venue(id):
+@token_required
+def get_venue(token_user,id):
     venue = db.session.get(Venue, id)
     if venue:
         return jsonify(venue.to_dict()), 200
@@ -133,7 +164,8 @@ def post_show():
     return jsonify(new_show.to_dict()), 201
 
 @app.route('/shows/<int:id>', methods=['GET'])
-def get_show(id):
+@token_required
+def get_show(token_user,id):
     show = db.session.get(Show, id)
     if show:
         return jsonify(show.to_dict())
@@ -192,7 +224,8 @@ def post_booking():
     return jsonify(new_booking.to_dict()),201
 
 @app.route('/users/<int:id>', methods=['GET'])
-def get_user(id):
+@token_required
+def get_user(token_user,id):
     user = db.session.get(User, id)
     if user:
         return jsonify(user.to_dict()), 200

@@ -21,10 +21,10 @@ app.use(router)
 
 app.mixin({
   created() {
-    const userString = localStorage.getItem('user')
+    const userString = JSON.parse(localStorage.getItem('user'))
     if (userString) {
-      const userData = JSON.parse(userString)
-      store.commit('user_auth/LOGIN_DATA', userData)
+      const userData = userString
+      store.commit('user_auth/SET_USER', userData)
     }
   }
 })

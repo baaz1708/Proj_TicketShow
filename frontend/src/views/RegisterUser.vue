@@ -56,7 +56,7 @@
             Please fill out the required field(s).</p>
         </form>
 
-        <p v-if="error" class="errorMessage">{{ error }}</p>
+        <p v-for="error in errors" class="errorMessage">{{ error }}</p>
         <router-link to="/login" class="">Already have an account? Login</router-link>
     </div>
 </template>

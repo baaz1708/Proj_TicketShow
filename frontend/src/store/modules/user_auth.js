@@ -8,8 +8,10 @@ export const state ={
 
 export const mutations = {
     LOGIN_DATA (state, userData) {
-        state.user = userData
-        localStorage.setItem('user', JSON.stringify(userData))
+        console.log('check whats the userdata inside mutation LOGIN_DATA', 'userData.user',userData.user, 'useData.token',userData.token)
+        state.user = userData.user
+        localStorage.setItem('user', JSON.stringify(userData.user))
+        EventService.addtoken(userData.token)
     },
     CLEAR_USER_DATA () {
         localStorage.removeItem('user')
@@ -17,7 +19,6 @@ export const mutations = {
     },
     SET_USER(state,userData) {
         state.user = userData
-        localStorage.setItem('user', JSON.stringify(userData))
     }
 }
 
@@ -55,6 +56,6 @@ export const getters = {
         return !!state.user
     },
      ifAdmin (state) {
-        return state.user && state.user.roles.includes('Admin')
+        return !!(state.user && state.user.roles.includes('Admin'))
      }
 }

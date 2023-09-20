@@ -210,8 +210,9 @@ const methods = {
 //   console.log('err from eventservice booking', err)
 // })
 
-const id=6
-methods.getUser(id)
-.then(response => {
-  console.log('response from eventservice user', response.data)
-})
+// const id=6
+// methods.getUser(id)
+// .then(response => {
+//   console.log('response from eventservice user', response.data)
+// })
+
