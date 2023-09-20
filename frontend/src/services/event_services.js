@@ -12,6 +12,11 @@ const apiClient = axios.create({
 })
 
 export default {
+
+    addtoken(token) {
+      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      console.log('apiclient header token added',apiClient.defaults.headers.common['Authorization'])
+    },
     postRegistration(registration) {
         return apiClient.post('/register', registration)
       },

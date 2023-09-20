@@ -23,7 +23,7 @@
       <h2>User Statistics</h2>
         <!-- Add your user statistics here -->
     </div>
-      <router-link :to="{ name: 'addshow' }" class="btn btn-primary mt-3 px-3 mx-auto">Back to Home</router-link>
+      <router-link :to="{ name: 'home' }" class="btn btn-primary mt-3 px-3 mx-auto">Back to Home</router-link>
   </div>
 </template>
 
