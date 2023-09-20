@@ -11,7 +11,7 @@ const apiClient = axios.create({
     timeout: 10000
 })
 
-const methods = {
+export default {
     postRegistration(registration) {
         return apiClient.post('/register', registration)
       },
@@ -21,7 +21,7 @@ const methods = {
     getCities() {
       return apiClient.get('/cities')
     },
-    getCity() {
+    getCity(id) {
       return apiClient.get('/cities/' + id)
     },
     getVenues(){
@@ -60,5 +60,8 @@ const methods = {
 
     postBooking(booking_data){
       return apiClient.post('/bookings', booking_data)
+    },
+    getUser(id){
+      return apiClient.get('/users/' + id)
     }
 }

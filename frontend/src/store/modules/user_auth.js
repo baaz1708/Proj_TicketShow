@@ -14,6 +14,10 @@ export const mutations = {
     CLEAR_USER_DATA () {
         localStorage.removeItem('user')
         location.reload()
+    },
+    SET_USER(state,userData) {
+        state.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
     }
 }
 
@@ -31,6 +35,17 @@ export const actions = {
     },
     logout ({ commit }) {
         commit('CLEAR_USER_DATA')
+    },
+    fetchUser({commit},id_obj){
+        console.log('Befor get user in action', 'userid',id_obj)
+        return EventService.getUser(id_obj.id).then((response) =>{
+            const data = response.data;
+            console.log('After get user in action', data)
+            if(response.status < 400){
+                console.log("user get success with 200")
+                commit('SET_USER', data)
+            }
+        })
     }
 
 }
@@ -40,7 +55,6 @@ export const getters = {
         return !!state.user
     },
      ifAdmin (state) {
-        return false
-        // return state.user && state.user.role === 'admin'
+        return state.user && state.user.roles.includes('Admin')
      }
 }

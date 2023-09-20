@@ -108,7 +108,7 @@ export default {
                     booked_slots: this.booked_slots
                 })
                 .then(() => {
-                    this.$router.push({name : 'bookedtickets', params: { id: user_id }})
+                    this.$router.push({name : 'bookedtickets', params:{ id: user_id } })
                 }).catch((err) =>{
                     console.log('got error during posting shows', err)
                     if (err.response && err.response.data && err.response.data.message){

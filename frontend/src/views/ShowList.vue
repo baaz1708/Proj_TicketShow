@@ -15,7 +15,7 @@
             </div>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
             <div class=" d-flex flex-wrap align-items-start my-1"><span v-for="tag in show.selected_tags" :key="tag" class="badge bg-secondary bg-opacity-10  text-bg-light mx-1">{{ tag }}</span></div>
-            <router-link :to="{name : 'bookshow', params:{id : show.name} }" class="btn -fill-gradient mt-2">Book show </router-link>
+            <router-link :to="{name : 'bookshow', params:{id : show.id} }" class="btn -fill-gradient mt-2">Book show </router-link>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@ import store from '@/store'
 
 function getVenuesByCity(routeTo,next){
     const city_id = routeTo.params.city_id;
-    console.log('routeTo.params.city_name=',routeTo.params.city_id)
+    console.log('routeTo.params.city_id=',routeTo.params.city_id)
     store.dispatch('city_list/fetchCity',{
       city_id : city_id
     }).then(() => {

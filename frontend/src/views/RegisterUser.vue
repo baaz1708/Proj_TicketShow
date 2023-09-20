@@ -23,7 +23,7 @@
             </template>
 
             <div class="mb-3">
-                <label for="password" class="form-lable">Password</label>
+                <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" v-model="password" value @blur="v$.password.$touch()" class="form-control { error: v$.password.$error }">
             </div>
             <template v-if="v$.password.$error">

@@ -165,26 +165,19 @@ export default {
         },
         editShow(){
             console.log('before editing show ', this.name)
+            let till_date = new Date(this.till_date)
             this.$store.dispatch('shows/editShow', {
                 show_id: this.$store.state.shows.show.id,
-                venue_id: this.$route.params.id,
                 name: this.name,
-                city: this.$route.query.city,
                 cover_image: this.cover_image,
                 ratings: this.ratings,
                 price: this.price,
                 selected_timings: this.selected_timings,
-                till_date: this.till_date,
-                date_added:"05/02/2002",
-                selected_tags: this.selected_tags,
-                bookings:{
-                    "morning":"0",
-                    "noon":"0",
-                    "evening":"0",
-                    "night":"0"
-                    }     
+                till_date: till_date,
+                selected_tags: this.selected_tags,   
             }).then(() =>{
-                this.$router.push({ name : 'venuecrud'})
+                let venue_id = this.$route.query.venue_id
+                this.$router.push({ name : 'venuecrud', params:{id:venue_id}})
             }).catch((err) =>{
                     console.log('got error during posting shows', err)
                     if (err.response && err.response.data && err.response.data.message){

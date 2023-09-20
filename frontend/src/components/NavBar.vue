@@ -24,7 +24,8 @@
                         <li v-else><h4 class="dropdown-item">User 🏷️</h4></li>   <!-- we can change it to {{ username }} -->
                         <li><hr class="dropdown-divider"></li>
                         <li v-if="ifAdmin"><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li v-if="ifAdmin"><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item">Bookings </router-link></li>
+                        <li v-else v-if="$store.state.loggedIn"><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item" >User Stats</router-link></li>
                     </ul>
                 </ul>
                 <form v-if="!ifAdmin" class="d-flex" role="search">
@@ -42,6 +43,10 @@ import {mapGetters} from 'vuex'
 export default {
     computed:{
     ...mapGetters('user_auth',['loggedIn','ifAdmin']),
+    
+    user(){
+      return this.$store.state.user_auth.user
+    }
     
     // username(){
     //   return this.$store.state.user_auth.user.username

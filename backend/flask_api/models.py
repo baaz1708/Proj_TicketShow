@@ -1,4 +1,4 @@
-from flask import json
+import json
 from flask_api import db
 from datetime import datetime
 
@@ -49,6 +49,7 @@ class City(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'venues': [venue.to_dict() for venue in self.venues]
         }
 
     def __repr__(self):
@@ -67,6 +68,7 @@ class Venue(db.Model):
             'id': self.id,
             'name': self.name,
             'city': self.city.name,
+            'city_id': self.city.id,
             'capacity': self.capacity,
             'dateadded': self.dateadded,
             'shows': [show.to_dict() for show in self.shows]
@@ -89,6 +91,11 @@ class Show(db.Model):
     bookings = db.relationship('Booking', backref='show', lazy=True)
 
     def to_dict(self):
+        try:
+            selected_timings = json.loads(self.selected_timings) if self.selected_timings else {}
+        except json.JSONDecodeError:
+            print(f"Error decoding selected_timings: {self.selected_timings}")
+            selected_timings = {}
         return {
             'id': self.id,
             'name': self.name,
@@ -99,7 +106,7 @@ class Show(db.Model):
             'till_date': self.till_date,
             'ratings': self.ratings,
             'selected_tags': [tag.name for tag in self.selected_tags],
-            'selected_timings': json.loads(self.selected_timings),
+            'selected_timings':  selected_timings ,#json.loads(self.selected_timings) if self.selected_timings else {},
             'bookings': [booking.to_dict() for booking in self.bookings]
         }
     
@@ -122,13 +129,18 @@ class Booking(db.Model):
     booked_slots = db.Column(db.String(450), nullable=False)
 
     def to_dict(self):
+        try:
+            booked_slots = json.loads(self.booked_slots) if self.booked_slots else {}
+        except json.JSONDecodeError:
+            print(f"Error decoding booked_slots: {self.booked_slots}")
+            booked_slots = {}
         return {
             'id': self.id,
             'show_id': self.show_id,
             'user_id': self.user_id,
             'timestamp': self.timestamp,
             'booked_date': self.booked_date,
-            'booked_slots': json.loads(self.booked_slots)
+            'booked_slots': booked_slots #json.loads(self.booked_slots) if self.booked_slots else {},
         }
     def __repr__(self):
         return f"<Booking {self.show_id}>"

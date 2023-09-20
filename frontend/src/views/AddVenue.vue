@@ -22,11 +22,11 @@
         <div class="col-md-4">
             <label for="Cityname" class="form-label">City</label>
             <select id="Cityname" v-model="Cityid"   @blur="v$.Cityid.$touch()" class="form-select { error: v$.Cityid.$error }">
-            <option selected>Choose...</option>
-            <option v-for="city in citylist" :key="city.id" :value="city.id">{{ city.cityname }}</option>
+            <option selected>Choose city...</option>
+            <option v-for="city in citylist" :key="city.id" :value="city.id">{{ city.name }}</option>
             </select>
         </div>
-        <div v-if="v$.Cityid.$dirty && Cityid === 'Choose...' ">
+        <div v-if="v$.Cityid.$dirty && Cityid === 'Choose city...' ">
             <p class="errorMessage">Category is required</p>
         </div>
 
@@ -59,7 +59,7 @@ export default {
         return {
             Venuename:"",
             Capacity: "",
-            Cityid: "",
+            Cityid: null,
             errors: []
         }
     },

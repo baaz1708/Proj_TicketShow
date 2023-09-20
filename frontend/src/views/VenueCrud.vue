@@ -22,9 +22,9 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="city" class="form-label">City</label>
-                                <select id="city" v-model="Cityname" class="form-select">
+                                <select id="city" v-model="Cityid" class="form-select">
                                 <option selected>{{ Cityname }}</option>
-                                <option v-for="city in citylist" :key="city.id">{{ city.cityname }}</option>
+                                <option v-for="city in citylist" :key="city.id" :value="city.id">{{ city.name }}</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -94,13 +94,13 @@ export default {
                 id:"",
                 Venuename:"",
                 Capacity: "",
-                Cityname: "",
+                Cityid: "",
                 Shows:[],
                 errors: []
             }
         },
     beforeRouteEnter(routeTo,routeFrom,next){   // parameters should be in exactly this form , must to include routeTo, routeFrom 
-    getcitylist_and_venueById(routeTo,next)  // even not used but important to use the next function in different function scope like above
+        getcitylist_and_venueById(routeTo,next)  // even not used but important to use the next function in different function scope like above
     },
     beforeRouteUpdate(routeTo,routeFrom,next){
         getcitylist_and_venueById(routeTo,next)
@@ -110,8 +110,8 @@ export default {
         this.id = this.$route.params.id
         this.Venuename = store.state.venues.venue.name
         this.Capacity = store.state.venues.venue.capacity
-        this.Cityname = store.state.venues.venue.city
         this.Shows = store.state.venues.venue.shows
+        this.Cityid = store.state.venues.venue.city_id
     },
 
     computed:{
@@ -140,6 +140,9 @@ export default {
                     show.name.toLowerCase().includes(this.search.toLowerCase()))
                 }
             }
+        },
+        Cityname(){
+            return this.$store.state.venues.venue.city
         }
     },
 
@@ -149,10 +152,8 @@ export default {
             this.$store.dispatch('venues/updateVenue' , {
                     id: this.$route.params.id,
                     name: this.Venuename,
-                    city: this.Cityname,
+                    city_id: this.Cityid,
                     capacity: this.Capacity,
-                    dataadded: '05/02/2022',
-                    shows:[]
             }).then(() =>{
                 console.log('done with venue changes');
                 let collapsible = this.$refs.collapsible;

@@ -1,4 +1,5 @@
-from flask import request,jsonify,json
+import json
+from flask import request,jsonify
 from datetime import datetime
 from werkzeug.datastructures import ImmutableMultiDict
 from flask_api import app,db,bcrypt
@@ -83,7 +84,9 @@ def get_venue(id):
 @app.route("/venues/<int:id>", methods=['PUT'])
 def update_venue(id):
     data = request.get_json()
+    print(type(data))
     venue = db.session.get(Venue, id)
+    print(venue)
     if venue and data:
         for key, value in data.items():
             setattr(venue, key, value)
@@ -142,13 +145,13 @@ def put_show(id):
     show = db.session.get(Show, id)
     if show:
         data = request.get_json()
+        print(data)
         show.name = data['name']
         show.cover_image = data['cover_image']
         show.ratings = data['ratings']
         show.price = data['price']
         show.selected_timings = json.dumps(data['selected_timings'])
         show.till_date = datetime.strptime(data['till_date'], "%Y-%m-%dT%H:%M:%S.%fZ")
-        show.venue_id = data['venue_id']
         # Add tags
         show.selected_tags = []
         for tag_name in data['selected_tags']:
@@ -187,3 +190,11 @@ def post_booking():
     db.session.commit()
 
     return jsonify(new_booking.to_dict()),201
+
+@app.route('/users/<int:id>', methods=['GET'])
+def get_user(id):
+    user = db.session.get(User, id)
+    if user:
+        return jsonify(user.to_dict()), 200
+    else:
+        return jsonify({"message": "User not found."}), 404

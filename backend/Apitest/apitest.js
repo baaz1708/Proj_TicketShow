@@ -60,6 +60,10 @@ const methods = {
 
     postBooking(booking_data){
       return apiClient.post('/bookings', booking_data)
+    },
+
+    getUser(id){
+      return apiClient.get('/users/' + id)
     }
 }
 
@@ -102,7 +106,8 @@ const methods = {
 // })
 
 // const venue_data = {
-//   "name" : "testdelete",
+//   "id" : 5,
+//   "name" : "Vrikutmpalam",
 //   "city_id" : 4,
 //   "capacity" : 500
 // }
@@ -204,3 +209,9 @@ const methods = {
 // }).catch(err =>{
 //   console.log('err from eventservice booking', err)
 // })
+
+const id=6
+methods.getUser(id)
+.then(response => {
+  console.log('response from eventservice user', response.data)
+})

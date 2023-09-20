@@ -5,7 +5,7 @@
         <input type="text" class="form-control" placeholder="Search City to Locate shows" aria-label="City" aria-describedby="city" v-model="search">
     </div>
     <div class="list-group">
-        <router-link :to="{name : 'showlist', params:{city_id : city.id } }" class="list-group-item list-group-item-action" v-for="city in filtered_list" :key="city.id">{{ city.cityname }}</router-link>
+        <router-link :to="{name : 'showlist', params:{city_id : city.id } }" class="list-group-item list-group-item-action" v-for="city in filtered_list" :key="city.id">{{ city.name }}</router-link>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
                 return [];
             }
             return this.city_list.filter((city) =>
-                city.cityname.toLowerCase().includes(this.search.toLowerCase())
+                city.name.toLowerCase().includes(this.search.toLowerCase())
             );
         }
     }

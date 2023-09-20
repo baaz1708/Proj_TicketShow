@@ -40,7 +40,7 @@ const routes = [
     meta: {requiresAuth: false, roles:['Admin','normal']}
   },
   {
-    path: "/showlist/:city_name",
+    path: "/showlist/:city_id",
     name: "showlist",
     component: ShowList,
     meta: {requiresAuth: true, roles:['Admin', 'normal']}
@@ -103,9 +103,11 @@ const router = createRouter({
 router.beforeEach((routeTo, routeFrom, next) => {
   NProgress.start()
   const loggedIn = localStorage.getItem('user')
-  const user = JSON.parse(localStorage.getItem('user')) // assuming user is stored as a JSON string
-  const userRoles = user.roles // assuming roles is a property of user
-
+  let userRoles = []
+  if (loggedIn){
+    const user = JSON.parse(localStorage.getItem('user')) // assuming user is stored as a JSON string
+    userRoles = user.roles // assuming roles is a property of user
+  }
   if (routeTo.matched.some(record => record.meta.requiresAuth)) {
     if (!loggedIn) {
       next({ name: 'login' }) // redirect to login page if not authenticated
