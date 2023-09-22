@@ -22,6 +22,7 @@ mail = Mail(app)
 app.config["CELERY_BROKER_URL"] = "redis://localhost:6379/1"
 app.config["CELERY_RESULT_BACKEND"] = "redis://localhost:6379/2"
 celery = Celery(app.name,broker=app.config["CELERY_BROKER_URL"],result_backend=app.config["CELERY_RESULT_BACKEND"])
+celery.conf.timezone = 'Asia/Kolkata'
 app.config["CACHE_TYPE"] = "redis"
 app.config["CACHE_REDIS_URL"] = "redis://localhost:6379/0"
 cache = Cache(app)

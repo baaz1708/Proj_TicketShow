@@ -33,7 +33,7 @@ class PDF(FPDF):
         self.set_font('helvetica','I',10)
         self.cell(0,10,f'Page{self.page_no()}/{{nb}}', align='C')
 
-def generate_pdf(userid):
+def generate_pdf(userid,venueNames):
     #create FPDF object
     #Layout ('P','L')
     # Unit ('mm','cm','in')
@@ -53,8 +53,23 @@ def generate_pdf(userid):
     pdf.set_text_color(0,242,87)
     pdf.cell(0,10,'Go to the website',ln=1, align='C', link=website)
     pdf.set_text_color(0,0,0)
+   
     pdf.add_page()
-    pdf.image(f'static/images/timed_booking_{userid}.png',5,30,200)
+    width,height=pdf.w,pdf.h
+    pdf.image('static/images/helpbox.jpg',x = 0, y = 0, w = width, h = height)
+    pdf.image(f'static/images/timed_booking_{userid}.png',18,18,180,200)
+   
+    pdf.add_page()
+    pdf.image('static/images/offwhiteline.jpg', x = 0, y = 0, w = width, h = height)
+    for i in range(0,len(venueNames)-1,2):
+        leftVenuepic = venueNames[i]
+        rightVenuepic=venueNames[i+1]
+        pdf.image(f'static/images/top_shows_{leftVenuepic}.png',x=20,y=20,w=160,h=90)
+        pdf.image(f'static/images/top_shows_{rightVenuepic}.png',x=20,y=130,w=160,h=90)
+
+        pdf.add_page()
+        pdf.image('static/images/traspages.jpg', x = 0, y = 0, w = width, h = height)
+    
     try:
         pdf.output(f'static/pdfs/user_report_{userid}.pdf')
     except Exception as e:
