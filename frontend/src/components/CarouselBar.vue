@@ -3,7 +3,7 @@
     <div id="carouselExampleCaptions" class="carousel slide mt-1" data-bs-ride="carousel" data-bs-interval="2000">
       <div class="carousel-inner" >
         <div class="carousel-item active">
-          <img src="https://images7.alphacoders.com/131/1314905.jpeg" alt="...">
+          <img src="https://images2.alphacoders.com/589/589553.png" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>{{msg}}</h5>
             <p>Some text</p>

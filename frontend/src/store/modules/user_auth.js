@@ -11,14 +11,18 @@ export const mutations = {
         console.log('check whats the userdata inside mutation LOGIN_DATA', 'userData.user',userData.user, 'useData.token',userData.token)
         state.user = userData.user
         localStorage.setItem('user', JSON.stringify(userData.user))
-        EventService.addtoken(userData.token)
+        localStorage.setItem('token',userData.token)
+        EventService.addtoken()
+
     },
     CLEAR_USER_DATA () {
         localStorage.removeItem('user')
+        localStorage.removeItem('token')
         location.reload()
     },
     SET_USER(state,userData) {
         state.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
     }
 }
 

@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import axios from 'axios'
+import EventService from "@/services/event_services";
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 // Import Bootstrap
@@ -21,6 +21,7 @@ app.use(router)
 
 app.mixin({
   created() {
+    EventService.addtoken()
     const userString = JSON.parse(localStorage.getItem('user'))
     if (userString) {
       const userData = userString

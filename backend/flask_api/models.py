@@ -1,5 +1,5 @@
 import json
-from flask_api import db
+from flask_api import db,cache
 from datetime import datetime
 
 #Association table
@@ -22,6 +22,7 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
     roles = db.relationship('Role', secondary=users_roles, backref=db.backref('users', lazy='dynamic'))
     bookings = db.relationship('Booking', backref='user', lazy=True)
+
 
     def to_dict(self):
         return {
@@ -63,6 +64,7 @@ class Venue(db.Model):
     dateadded = db.Column(db.DateTime, default=datetime.utcnow)
     shows = db.relationship('Show', backref='venue', lazy=True)
 
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -71,7 +73,7 @@ class Venue(db.Model):
             'city_id': self.city.id,
             'capacity': self.capacity,
             'dateadded': self.dateadded,
-            'shows': [show.to_dict() for show in self.shows]
+            'shows': [show.to_dict() for show in self.shows if show.till_date > datetime.utcnow()]
         }
     
     def __repr__(self):
@@ -127,6 +129,7 @@ class Booking(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     booked_date = db.Column(db.DateTime, nullable=False)
     booked_slots = db.Column(db.String(450), nullable=False)
+
 
     def to_dict(self):
         try:

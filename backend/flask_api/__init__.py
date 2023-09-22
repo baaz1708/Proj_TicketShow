@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
+from flask_mail import Mail
+from celery import Celery
+from flask_caching import Cache
 
 app = Flask(__name__)
 CORS(app)
@@ -10,7 +13,18 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'baazsingh1708@gmail.com'
+app.config['MAIL_PASSWORD'] = 'qdqxuqfvfwqjvsgm'
+mail = Mail(app)
+app.config["CELERY_BROKER_URL"] = "redis://localhost:6379/1"
+app.config["CELERY_RESULT_BACKEND"] = "redis://localhost:6379/2"
+celery = Celery(app.name,broker=app.config["CELERY_BROKER_URL"],result_backend=app.config["CELERY_RESULT_BACKEND"])
+app.config["CACHE_TYPE"] = "redis"
+app.config["CACHE_REDIS_URL"] = "redis://localhost:6379/0"
+cache = Cache(app)
 
 
 app.app_context().push()

@@ -13,10 +13,13 @@ const apiClient = axios.create({
 
 export default {
 
-    addtoken(token) {
-      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      console.log('apiclient header token added',apiClient.defaults.headers.common['Authorization'])
-    },
+    addtoken() {
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      if (token) {
+        apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        console.log('apiclient header token added', apiClient.defaults.headers.common['Authorization']);
+    }
+  },
     postRegistration(registration) {
         return apiClient.post('/register', registration)
       },

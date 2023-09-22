@@ -1,9 +1,11 @@
 import json,jwt
 from functools import wraps
-from flask import request,jsonify
+from flask import request,jsonify,url_for
+from flask_api import tasks # We need to import tasks in some way otherwise celery will not be able to register those tasks.
 from datetime import datetime,timedelta
-from flask_api import app,db,bcrypt
-from flask_api.models import User,City,Venue,Show,Tag,Booking
+from flask_api import app,db,bcrypt,mail,cache
+from flask_mail import Message
+from flask_api.models import User,City,Venue,Show,Tag,Booking,Role
 
 def token_required(f):
     @wraps(f)
@@ -24,6 +26,12 @@ def token_required(f):
             return jsonify({'message': 'Token is invalid!'}), 401
         return f(token_user,*args, **kwargs)
     return decorated
+
+@app.route("/celery_hello/<username>",methods=['GET','POST'])
+def celery_hello(username):
+    job = tasks.just_say_hello.delay(username)
+    result = job.wait()
+    return str(result), 200
 
 @app.route('/')
 def index():
@@ -61,18 +69,25 @@ def login():
             payload = {'user_id': user.id, 'exp':exp_time}
             token= jwt.encode(payload,app.config['SECRET_KEY'],algorithm='HS256')
             print(f'{user.username} is authenticated')
+            role = Role.query.filter_by(role='normal').first()
+            if role not in user.roles:
+                user.roles.append(role)
+                db.session.commit()
+
             return jsonify({'user':user.to_dict(), 'token':token}), 200
         else:
             return jsonify({"message": "Invalid credentials."}), 401
     else:
         return jsonify({"message": "Invalid payload."}), 400
 
+@cache.cached(timeout=60, key_prefix='cities')
 @app.route("/cities", methods=['GET'])
 @token_required
 def get_cities(token_user):
     cities = [city.to_dict() for city in City.query.all()]
     return jsonify(cities), 200
 
+@cache.cached(timeout=60, key_prefix='city')
 @app.route("/cities/<int:id>", methods=['GET'])
 @token_required
 def get_city(token_user,id):
@@ -83,6 +98,7 @@ def get_city(token_user,id):
         return jsonify({"message": "City not found."}), 404
 
 # GET all venues
+@cache.cached(timeout=60, key_prefix='venues')
 @app.route("/venues", methods=['GET'])
 @token_required
 def get_venues(token_user):
@@ -102,6 +118,7 @@ def post_venue():
         return jsonify({"message": "Invalid payload."}), 400
 
 # GET a specific venue by id
+@cache.cached(timeout=60, key_prefix='venue')
 @app.route("/venues/<int:id>", methods=['GET'])
 @token_required
 def get_venue(token_user,id):
@@ -163,6 +180,7 @@ def post_show():
 
     return jsonify(new_show.to_dict()), 201
 
+@cache.cached(timeout=60, key_prefix='get_show')
 @app.route('/shows/<int:id>', methods=['GET'])
 @token_required
 def get_show(token_user,id):
@@ -223,6 +241,7 @@ def post_booking():
 
     return jsonify(new_booking.to_dict()),201
 
+# @cache.cached(timeout=60, key_prefix='user')
 @app.route('/users/<int:id>', methods=['GET'])
 @token_required
 def get_user(token_user,id):
@@ -231,3 +250,12 @@ def get_user(token_user,id):
         return jsonify(user.to_dict()), 200
     else:
         return jsonify({"message": "User not found."}), 404
+    
+def send_email():
+    msg=Message('Password Reset Request',sender='noreply@demo.com',recipients=['21f1004766@ds.study.iitm.ac.in'])
+    msg.body=f'''To reset your password, visit the following link:
+http://localhost:8080/
+
+If you did not make this request then simply ignore this email and no changes will be made.
+'''
+    mail.send(msg)
