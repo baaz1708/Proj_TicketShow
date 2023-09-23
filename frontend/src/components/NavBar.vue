@@ -25,8 +25,7 @@
                         <li><hr class="dropdown-divider"></li>
                         <li v-if="ifAdmin"><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
                         <li v-if="ifAdmin"><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item">Bookings </router-link></li>
-                        <li v-if="ifAdmin"><router-link :to="{name: 'download'}" class="dropdown-item" > Export_Venus_csv </router-link></li>
-                        <li v-if="!ifAdmin && loggedIn" ><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item" >User Stats</router-link></li>
+                        <li v-else v-if="$store.state.loggedIn"><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item" >User Stats</router-link></li>
                     </ul>
                 </ul>
                 <form v-if="!ifAdmin" class="d-flex" role="search">
