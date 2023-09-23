@@ -71,5 +71,10 @@ export default {
     },
     getUser(id){
       return apiClient.get('/users/' + id)
+    },
+    exportVenues(){
+      return apiClient.get('/export_venues')
     }
 }
+
+export {apiClient}

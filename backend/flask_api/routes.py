@@ -1,10 +1,10 @@
-import json,jwt
+import json,jwt,os,traceback
 from functools import wraps
-from flask import request,jsonify,url_for
+from flask import request,jsonify,url_for,send_file
 from flask_api import tasks # We need to import tasks in some way otherwise celery will not be able to register those tasks.
 from datetime import datetime,timedelta
-from flask_api import app,db,bcrypt,mail,cache
-from flask_mail import Message
+from flask_api import app,db,bcrypt,cache
+# from flask_mail import Message
 from flask_api.models import User,City,Venue,Show,Tag,Booking,Role
 
 def token_required(f):
@@ -241,7 +241,7 @@ def post_booking():
 
     return jsonify(new_booking.to_dict()),201
 
-# @cache.cached(timeout=60, key_prefix='user')
+@cache.cached(timeout=60, key_prefix='user')
 @app.route('/users/<int:id>', methods=['GET'])
 @token_required
 def get_user(token_user,id):
@@ -251,11 +251,19 @@ def get_user(token_user,id):
     else:
         return jsonify({"message": "User not found."}), 404
     
-def send_email():
-    msg=Message('Password Reset Request',sender='noreply@demo.com',recipients=['21f1004766@ds.study.iitm.ac.in'])
-    msg.body=f'''To reset your password, visit the following link:
-http://localhost:8080/
+@app.route('/export_venues', methods=['GET'])
+def export_venues():
+    tasks.export_venues_job.delay()
+    venues = [venue.name for venue in Venue.query.all()]
+    return jsonify(venues), 200
 
-If you did not make this request then simply ignore this email and no changes will be made.
-'''
-    mail.send(msg)
+@app.route('/download/<venue_name>', methods=['GET'])
+def download(venue_name):
+    try:
+        if os.path.exists(f'static/exported_csvs/{venue_name}.csv'):
+            return send_file(f'../static/exported_csvs/{venue_name}.csv', as_attachment=True)
+        else:
+            return jsonify({"message":"The CSV file is not ready yet. Please try again later."}), 202
+    except Exception as e:
+        print(traceback.format_exc())
+        return jsonify(str(e)), 500

@@ -57,7 +57,7 @@ def generate_pdf(userid,venueNames):
     pdf.add_page()
     width,height=pdf.w,pdf.h
     pdf.image('static/images/helpbox.jpg',x = 0, y = 0, w = width, h = height)
-    pdf.image(f'static/images/timed_booking_{userid}.png',18,18,180,200)
+    pdf.image(f'static/images/timed_booking_{userid}.png',20,18,180,170)
    
     pdf.add_page()
     pdf.image('static/images/offwhiteline.jpg', x = 0, y = 0, w = width, h = height)

@@ -28,6 +28,13 @@ export default {
   background: linear-gradient(to right, #16c0b0, #84cf6a);
   color: #fff;
   font-variant: small-caps;
+  transition: all 0.2s linear;
+}
+
+.-fill-gradient:hover{
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 

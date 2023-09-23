@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary -fill-gradient">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary -fillnav-gradient">
         <div class="container-fluid">
             <router-link :to="{name: 'home'}" class="navbar-brand" >
                 <img src="../assets/logo.png" alt="Logo" width="26" height="24" class="d-inline-block align-text-top "> 
@@ -25,6 +25,7 @@
                         <li><hr class="dropdown-divider"></li>
                         <li v-if="ifAdmin"><router-link :to="{name : 'addshow'}" class="dropdown-item">Venues List</router-link></li>
                         <li v-if="ifAdmin"><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item">Bookings </router-link></li>
+                        <li v-if="ifAdmin"><router-link :to="{name: 'download'}" class="dropdown-item" > Export_Venus_csv </router-link></li>
                         <li v-if="!ifAdmin && loggedIn" ><router-link :to="{name : 'bookedtickets', params:{id:user.id} }" class="dropdown-item" >User Stats</router-link></li>
                     </ul>
                 </ul>
@@ -62,5 +63,9 @@ export default {
 </script>
 
 <style>
-
+.-fillnav-gradient{
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: #fff;
+  font-variant: small-caps;
+}
 </style>

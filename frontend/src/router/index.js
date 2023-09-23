@@ -13,6 +13,7 @@ import AddonShow from "../views/AddonShow.vue"
 import EditShow from "../views/EditShow.vue"
 import BookShow from "../views/BookShow.vue"
 import BookedTickets from "../views/BookedTickets.vue"
+import Download from "../views/Download.vue"
 
 const routes = [
   {
@@ -92,6 +93,12 @@ const routes = [
     name: "bookedtickets",
     component: BookedTickets,
     meta: {requiresAuth: true, roles:['Admin', 'normal']}
+  },
+  {
+    path:"/download",
+    name:"download",
+    component: Download,
+    meta:{requiresAuth: true, roles:['Admin']}
   }
 ];
 

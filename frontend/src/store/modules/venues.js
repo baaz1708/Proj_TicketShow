@@ -4,7 +4,8 @@ export const namespaced = true
 
 export const state = {
     venues:[],
-    venue: {}
+    venue: {},
+    venuenames:[]
 
 }
 
@@ -14,6 +15,9 @@ export const mutations = {
     },
     SET_VENUE(state,venue){
         state.venue = venue
+    },
+    SET_VENUE_NAMES(state,venuenames){
+        state.venuenames=venuenames
     }
 
 }
@@ -67,6 +71,15 @@ export const actions = {
             console.log('After getting venues by city',res)
             commit('SET_VENUES', res)
 
+        })
+    },
+
+    export({commit}){
+        console.log('befor export venues')
+        return EventService.exportVenues()
+        .then((res) =>{
+            console.log('agter getting venue names in export', res.data)
+            commit('SET_VENUE_NAMES',res.data)
         })
     }
 

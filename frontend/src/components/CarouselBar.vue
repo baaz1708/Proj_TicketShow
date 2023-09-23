@@ -51,7 +51,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .carousel-item img {
-  height: 500px;
+  height: 600px;
   width: 100%;
 }
 
