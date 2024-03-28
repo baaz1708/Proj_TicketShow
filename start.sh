@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start virtual environment
+source .venv/bin/activate
+
 # Start the redis server
 sudo service redis-server start
 

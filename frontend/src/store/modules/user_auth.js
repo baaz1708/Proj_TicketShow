@@ -22,6 +22,7 @@ export const mutations = {
     },
     SET_USER(state,userData) {
         state.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
     }
 }
 
